@@ -1,0 +1,15 @@
+overwrite: true
+schema: 'src/graphql/generated/github-schema-loader.js'
+documents:
+  - src/graphql/{queries,mutations}/*.graphql
+generates:
+  src/graphql/generated/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-resolvers'
+      - 'typescript-document-nodes'
+      - 'typescript-operations'
+config:
+  constEnums: true
+  immutableTypes: true
+  maybeValue: T | undefined

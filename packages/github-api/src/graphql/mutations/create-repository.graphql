@@ -1,0 +1,19 @@
+mutation CreateRepository(
+  $repositoryName: String!,
+  $repositoryDescription: String!,
+  $ownerId: ID!
+) {
+  createRepository (
+    input: {
+      name: $repositoryName
+      description: $repositoryDescription
+      ownerId: $ownerId
+      visibility: PUBLIC
+    }
+  ) {
+    repository {
+      name
+      createdAt
+    }
+  }
+}
