@@ -1,5 +1,5 @@
 {
-  "name": "github-api",
+  "name": "@mrzli/github-api",
   "description": "Wrapper for accessing GitHub API.",
   "version": "1.0.0",
   "author": "goran.mrzljak@gmail.com",
