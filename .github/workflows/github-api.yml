@@ -35,6 +35,8 @@ jobs:
         run: |
           cd packages/github-api
           npm run build
+      - name: Prepare for Publish
+        run: echo "registry=https://npm.pkg.github.com/@mrzli" >> .npmrc
       - name: Publish
         run: |
           cd packages/github-api

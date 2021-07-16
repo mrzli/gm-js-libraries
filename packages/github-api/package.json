@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "author": "goran.mrzljak@gmail.com",
   "license": "MIT",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "build": "tsc",
     "lint": "eslint --ext .ts .",
