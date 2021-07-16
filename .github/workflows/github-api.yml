@@ -38,7 +38,7 @@ jobs:
       - name: Prepare for Publish
         run: |
           cd packages/github-api
-          echo "registry=https://npm.pkg.github.com/@mrzli" >> .npmrc
+          echo "registry=https://npm.pkg.github.com/@mrzli" > .npmrc
       - name: Publish
         run: |
           cd packages/github-api
