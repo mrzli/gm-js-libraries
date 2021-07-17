@@ -40,7 +40,8 @@ jobs:
           echo "registry=https://npm.pkg.github.com/@mrzli" > .npmrc
       - name: Publish
         run: |
-          cd packages/github-api
+          cd packages/github-api/dist
+          cp ../package.json .
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
