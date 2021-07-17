@@ -1,16 +1,14 @@
-import { createFileSystem } from '../../file-system/file-system';
-import { createPath } from '../../file-system/path';
+import { resolvePath, resolvePathFromCwd } from '../../path';
+import { copyDirectorySubset } from '../../file-system';
 
 async function test(): Promise<void> {
-  const path = createPath();
-  const fileSystem = createFileSystem();
-  const testDataDir = path.resolvePathFromCwd('test-data');
+  const testDataDir = resolvePathFromCwd('test-data');
 
-  const inputDir = path.resolvePath(testDataDir, 'input-dir');
-  const outputDir = path.resolvePath(testDataDir, 'output-dir');
+  const inputDir = resolvePath(testDataDir, 'input-dir');
+  const outputDir = resolvePath(testDataDir, 'output-dir');
 
-  // await fileSystem.copyDirectory(inputDir, outputDir);
-  await fileSystem.copyDirectorySubset(inputDir, ['**/*.txt'], outputDir);
+  // await copyDirectory(inputDir, outputDir);
+  await copyDirectorySubset(inputDir, ['**/*.txt'], outputDir);
 }
 
 test().finally(() => {

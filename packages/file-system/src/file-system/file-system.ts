@@ -1,31 +1,19 @@
 import { resolve } from 'path';
 import { promises as fsPromises } from 'fs';
 import fsExtra from 'fs-extra';
-import { FileSystem } from '../types/file-system';
 import copyfiles from 'copyfiles';
 
-export function createFileSystem(): FileSystem {
-  return {
-    makeDirectory,
-    removeFileSystemEntry,
-    removeFileSystemEntries,
-    removeFileSystemEntriesInDirectory,
-    copyDirectory,
-    copyDirectorySubset
-  };
-}
-
-async function makeDirectory(dirPath: string): Promise<void> {
+export async function makeDirectory(dirPath: string): Promise<void> {
   await fsPromises.mkdir(dirPath, { recursive: true });
 }
 
-async function removeFileSystemEntry(
+export async function removeFileSystemEntry(
   fileSystemEntryPath: string
 ): Promise<void> {
   await fsPromises.rm(fileSystemEntryPath, { recursive: true });
 }
 
-async function removeFileSystemEntries(
+export async function removeFileSystemEntries(
   fileSystemEntryPaths: readonly string[]
 ): Promise<void> {
   await Promise.all(
@@ -35,7 +23,7 @@ async function removeFileSystemEntries(
   );
 }
 
-async function removeFileSystemEntriesInDirectory(
+export async function removeFileSystemEntriesInDirectory(
   dirPath: string,
   relativeFileSystemEntryPaths: readonly string[]
 ): Promise<void> {
@@ -45,7 +33,7 @@ async function removeFileSystemEntriesInDirectory(
   await removeFileSystemEntries(fullPaths);
 }
 
-async function copyDirectory(
+export async function copyDirectory(
   sourceDirPath: string,
   destinationDirPath: string
 ): Promise<void> {
@@ -59,7 +47,7 @@ async function copyDirectory(
   });
 }
 
-async function copyDirectorySubset(
+export async function copyDirectorySubset(
   sourceDirPath: string,
   globs: readonly string[],
   destinationDirPath: string

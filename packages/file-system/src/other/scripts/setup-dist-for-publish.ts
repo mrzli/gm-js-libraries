@@ -1,5 +1,5 @@
 import { createFileSystem } from '../../file-system/file-system';
-import { createPath } from '../../file-system/path';
+import { createPath } from '../../path/path';
 import process from 'process';
 
 async function setupDistForPublish(): Promise<void> {
