@@ -1,0 +1,6 @@
+/dist/
+/src/graphql/
+
+/.eslintrc.js
+/README.md
+/tsconfig.json

@@ -1,0 +1,42 @@
+{
+  "name": "@mrzli/gm-js-libraries-json-serializer",
+  "description": "Wrapper for accessing GitHub API.",
+  "version": "1.0.1",
+  "author": "goran.mrzljak@gmail.com",
+  "repository": {
+    "type": "git",
+    "url": "https:/github.com:mrzli/gm-js-libraries.git",
+    "directory": "packages/github-api"
+  },
+  "license": "MIT",
+  "files": [
+    "**/*"
+  ],
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "lint": "eslint --ext .ts .",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check ."
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "1.21.7",
+    "@graphql-codegen/typescript": "1.23.0",
+    "@graphql-codegen/typescript-document-nodes": "1.17.16",
+    "@graphql-codegen/typescript-operations": "1.18.4",
+    "@graphql-codegen/typescript-resolvers": "1.20.0",
+    "@octokit/graphql-schema": "10.53.0",
+    "@types/jest": "26.0.24",
+    "@types/node": "16.3.2",
+    "@typescript-eslint/eslint-plugin": "4.28.3",
+    "eslint": "7.30.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "prettier": "2.3.2",
+    "ts-jest": "27.0.3",
+    "typescript": "4.3.5"
+  }
+}
