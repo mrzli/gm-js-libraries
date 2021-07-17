@@ -3,16 +3,25 @@
     "src"
   ],
   "compilerOptions": {
+    // output
     "rootDir": "./src",
     "outDir": "./dist",
     "declaration": true,
+
+    // compilation
     "module": "CommonJS",
     "removeComments": true,
     "target": "ES6",
+
+    // checks
     "strict": true,
+
+    // module resolution
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+
+    // typing
     "lib": [
       "ESNext",
       "DOM",
@@ -21,11 +30,15 @@
     "typeRoots": [
       "./node_modules/@types/"
     ],
+
+    // linting
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
+
+    // advanced
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   }

@@ -1,5 +1,5 @@
 {
-  "name": "@mrzli/github-api",
+  "name": "@mrzli/gm-js-libraries-github-api",
   "description": "Wrapper for accessing GitHub API.",
   "version": "1.0.1",
   "author": "goran.mrzljak@gmail.com",
