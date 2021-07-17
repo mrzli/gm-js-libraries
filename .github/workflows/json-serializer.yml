@@ -25,6 +25,8 @@ jobs:
         run: |
           cd packages/json-serializer
           npm ci
+        env:
+          GITHUB_PACKAGE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Lint
         run: |
           cd packages/json-serializer

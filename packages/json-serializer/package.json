@@ -15,16 +15,15 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "build": "rm -rf dist && tsc",
+    "build": "rm -rf dist && tsc && ts-node src/other/scripts/setup-dist-for-publish.ts",
     "lint": "eslint --ext .ts .",
     "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
     "test": "jest",
     "test:ci": "jest --ci"
   },
-  "dependencies": {
-  },
   "devDependencies": {
+    "@mrzli/gm-js-libraries-file-system": "1.0.1",
     "@types/jest": "26.0.24",
     "@types/node": "16.3.3",
     "@typescript-eslint/eslint-plugin": "4.28.3",
