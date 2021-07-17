@@ -1,17 +1,14 @@
-import { createFileSystem } from '../../file-system/file-system';
-import { createPath } from '../../path/path';
 import process from 'process';
+import {
+  copyDirectorySubset,
+  removeFileSystemEntriesInDirectory
+} from '../../file-system';
+import { resolvePathFromCwd } from '../../path';
 
 async function setupDistForPublish(): Promise<void> {
-  const path = createPath();
-  const fileSystem = createFileSystem();
-  const distDir = path.resolvePathFromCwd('dist');
-  await fileSystem.removeFileSystemEntriesInDirectory(distDir, ['other']);
-  await fileSystem.copyDirectorySubset(
-    process.cwd(),
-    ['package.json'],
-    distDir
-  );
+  const distDir = resolvePathFromCwd('dist');
+  await removeFileSystemEntriesInDirectory(distDir, ['other']);
+  await copyDirectorySubset(process.cwd(), ['package.json'], distDir);
 }
 
 setupDistForPublish().finally(() => {
