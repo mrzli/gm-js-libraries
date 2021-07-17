@@ -2,7 +2,6 @@ import { resolve } from 'path';
 import { promises as fsPromises } from 'fs';
 import fsExtra from 'fs-extra';
 import { FileSystem } from '../types/file-system';
-import minimatch from 'minimatch';
 import copyfiles from 'copyfiles';
 
 export function createFileSystem(): FileSystem {
