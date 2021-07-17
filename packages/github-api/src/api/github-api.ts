@@ -14,8 +14,13 @@ import { NormalizedCacheObject } from 'apollo-cache-inmemory';
 import { AxiosInstance } from 'axios';
 import { CreateRepositoryParams } from '../types/input/create-repository-params';
 import { DeleteRepositoryParams } from '../types/input/delete-repository-params';
+import { GithubApi } from '../types/github-api';
 
-export class GithubApi {
+export function createGithubApi(githubToken: string): GithubApi {
+  return new GithubApiImpl(githubToken);
+}
+
+class GithubApiImpl implements GithubApi {
   private readonly clientGraphQl: ApolloClient<NormalizedCacheObject>;
   private readonly clientRest: AxiosInstance;
 
