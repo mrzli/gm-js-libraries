@@ -18,19 +18,14 @@
     "build": "rm -rf dist && tsc",
     "lint": "eslint --ext .ts .",
     "prettier": "prettier --write .",
-    "prettier:check": "prettier --check ."
+    "prettier:check": "prettier --check .",
+    "test": "jest"
   },
   "dependencies": {
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "1.21.7",
-    "@graphql-codegen/typescript": "1.23.0",
-    "@graphql-codegen/typescript-document-nodes": "1.17.16",
-    "@graphql-codegen/typescript-operations": "1.18.4",
-    "@graphql-codegen/typescript-resolvers": "1.20.0",
-    "@octokit/graphql-schema": "10.53.0",
     "@types/jest": "26.0.24",
-    "@types/node": "16.3.2",
+    "@types/node": "16.3.3",
     "@typescript-eslint/eslint-plugin": "4.28.3",
     "eslint": "7.30.0",
     "eslint-config-prettier": "8.3.0",

@@ -2,5 +2,6 @@
 /src/graphql/
 
 /.eslintrc.js
+/.jest.config.js
 /README.md
 /tsconfig.json
