@@ -19,7 +19,8 @@
     "lint": "eslint --ext .ts .",
     "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
-    "test": "jest"
+    "test": "jest",
+    "test:ci": "jest --ci"
   },
   "dependencies": {
   },
