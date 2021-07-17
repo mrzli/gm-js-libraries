@@ -1,19 +1,14 @@
 import {
-  createFileSystem,
-  createPath
-} from '@mrzli/gm-js-libraries-file-system';
+  copyDirectorySubset,
+  removeFileSystemEntriesInDirectory
+} from '@mrzli/gm-js-libraries-file-system/file-system';
+import { resolvePathFromCwd } from '@mrzli/gm-js-libraries-file-system/path';
 import process from 'process';
 
 async function setupDistForPublish(): Promise<void> {
-  const path = createPath();
-  const fileSystem = createFileSystem();
-  const distDir = path.resolvePathFromCwd('dist');
-  await fileSystem.removeFileSystemEntriesInDirectory(distDir, ['other']);
-  await fileSystem.copyDirectorySubset(
-    process.cwd(),
-    ['package.json'],
-    distDir
-  );
+  const distDir = resolvePathFromCwd('dist');
+  await removeFileSystemEntriesInDirectory(distDir, ['other']);
+  await copyDirectorySubset(process.cwd(), ['package.json'], distDir);
 }
 
 setupDistForPublish().finally(() => {
