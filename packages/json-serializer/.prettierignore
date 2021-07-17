@@ -1,5 +1,4 @@
 /dist/
-/src/graphql/
 
 /.eslintrc.js
 /.jest.config.js
