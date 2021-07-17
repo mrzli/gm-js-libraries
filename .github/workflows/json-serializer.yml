@@ -32,11 +32,10 @@ jobs:
           cd packages/json-serializer
           npm run lint
           npm run prettier:check
-      - name: Lint
+      - name: Test
         run: |
           cd packages/json-serializer
-          npm run lint
-          npm run prettier:check
+          npm run test:ci
       - name: Build Project
         run: |
           cd packages/json-serializer
