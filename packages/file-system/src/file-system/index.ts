@@ -1,4 +1,6 @@
 export {
+  readFileAsString,
+  writeStringToFile,
   makeDirectory,
   removeFileSystemEntry,
   removeFileSystemEntries,

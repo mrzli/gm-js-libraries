@@ -3,6 +3,17 @@ import { promises as fsPromises } from 'fs';
 import fsExtra from 'fs-extra';
 import copyfiles from 'copyfiles';
 
+export async function readFileAsString(filePath: string): Promise<string> {
+  return fsPromises.readFile(filePath, { encoding: 'utf-8' });
+}
+
+export async function writeStringToFile(
+  filePath: string,
+  data: string
+): Promise<void> {
+  await fsPromises.writeFile(filePath, data, { encoding: 'utf-8' });
+}
+
 export async function makeDirectory(dirPath: string): Promise<void> {
   await fsPromises.mkdir(dirPath, { recursive: true });
 }
