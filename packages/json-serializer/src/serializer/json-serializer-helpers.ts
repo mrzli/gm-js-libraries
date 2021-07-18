@@ -50,7 +50,7 @@ export function getEntryWithValueString(
   options: JsonSerializerOptions,
   indentSize: number,
   isLastEntryWithValue: boolean
-) {
+): string {
   return getIndent(indentSize)
     .concat(meaningfulValueString)
     .concat(getDelimiter(isLastEntryWithValue))

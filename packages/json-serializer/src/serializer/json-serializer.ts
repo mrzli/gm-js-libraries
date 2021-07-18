@@ -24,8 +24,7 @@ import {
 } from './json-serializer-helpers';
 import {
   arrayFindLastIndexOfWithPredicate,
-  arrayGetPrimitiveDuplicates,
-  arrayHasPrimitiveDuplicates
+  arrayGetPrimitiveDuplicates
 } from '@mrzli/gm-js-libraries-utilities/array';
 
 export function jsonSerialize(

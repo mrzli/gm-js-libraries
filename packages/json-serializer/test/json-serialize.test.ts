@@ -324,7 +324,8 @@ describe('json-serialize', () => {
 
       EXAMPLES.forEach((example) => {
         it(JSON.stringify(example), () => {
-          const call = () => jsonSerialize(example.input, DEFAULT_OPTIONS);
+          const call = (): string =>
+            jsonSerialize(example.input, DEFAULT_OPTIONS);
           expect(call).toThrow();
         });
       });
