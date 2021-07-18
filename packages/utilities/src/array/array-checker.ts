@@ -8,9 +8,9 @@ export function arrayHasPrimitiveDuplicates<TItem extends SimpleValue>(
   for (const item of array) {
     if (set.has(item)) {
       return true;
+    } else {
+      set.add(item);
     }
-
-    set.add(item);
   }
 
   return false;
