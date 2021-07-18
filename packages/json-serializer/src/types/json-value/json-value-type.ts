@@ -3,8 +3,6 @@ export enum JsonValueType {
   String = 'String',
   Number = 'Number',
   Boolean = 'Boolean',
-  SingleLineObject = 'SingleLineObject',
-  MultiLineObject = 'MultiLineObject',
-  SingleLineArray = 'SingleLineArray',
-  MultiLineArray = 'MultiLineArray'
+  Array = 'Array',
+  Object = 'Object'
 }
