@@ -1,12 +1,12 @@
 {
   "name": "@mrzli/gm-js-libraries-json-serializer",
-  "description": "Wrapper for accessing GitHub API.",
+  "description": "JSON serializer library.",
   "version": "1.0.1",
   "author": "goran.mrzljak@gmail.com",
   "repository": {
     "type": "git",
     "url": "https:/github.com:mrzli/gm-js-libraries.git",
-    "directory": "packages/github-api"
+    "directory": "packages/json-serializer"
   },
   "license": "MIT",
   "files": [
