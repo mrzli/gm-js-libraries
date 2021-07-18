@@ -1,0 +1,17 @@
+import { SimpleValue } from '../types';
+import { Nullish } from '../types/generic';
+
+export function arrayHasPrimitiveDuplicates<TItem extends SimpleValue>(
+  array: readonly Nullish<TItem>[]
+): boolean {
+  const set = new Set<Nullish<TItem>>();
+  for (const item of array) {
+    if (set.has(item)) {
+      return true;
+    }
+
+    set.add(item);
+  }
+
+  return false;
+}
