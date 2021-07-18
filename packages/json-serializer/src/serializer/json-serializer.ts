@@ -5,16 +5,28 @@ import {
   JsonValueType
 } from '../types/json-value';
 import { JsonSerializerOptions } from '../types/json-serializer-options';
-import { JsonEntry, JsonEntryArray, JsonEntryType } from '../types/json-entry';
 import {
-  createDelimiter,
-  createIndent,
+  JsonEntry,
+  JsonEntryField,
+  JsonEntryObject,
+  JsonEntryType
+} from '../types/json-entry';
+import {
+  getArrayEndString,
+  getArrayStartString,
   getEntryNonValueString,
   getEntryWithValueString,
   getIncrementedIndent,
+  getObjectEndString,
+  getObjectStartString,
   getPrimitiveValueString,
   JsonEntryWithValue
 } from './json-serializer-helpers';
+import {
+  arrayFindLastIndexOfWithPredicate,
+  arrayGetPrimitiveDuplicates,
+  arrayHasPrimitiveDuplicates
+} from '@mrzli/gm-js-libraries-utilities/array';
 
 export function jsonSerialize(
   value: JsonValue,
@@ -46,10 +58,14 @@ function jsonSerializeArray(
   options: JsonSerializerOptions,
   currentIndent: number
 ): string {
-  const incrementedIndent = getIncrementedIndent(currentIndent, options);
-  const entries: readonly JsonEntryArray[] = value.value;
-  // const lastEntryWithValueIndex = entries.lastIndexOf((entry) =>)
-  return '[\n';
+  if (value.value.length === 0) {
+    return '[]';
+  }
+
+  const entriesString = jsonSerializeEntries(value, options, currentIndent);
+  return getArrayStartString()
+    .concat(entriesString)
+    .concat(getArrayEndString(currentIndent));
 }
 
 function jsonSerializeObject(
@@ -57,7 +73,50 @@ function jsonSerializeObject(
   options: JsonSerializerOptions,
   currentIndent: number
 ): string {
-  return '';
+  const entries: readonly JsonEntryObject[] = value.value;
+  if (entries.length === 0) {
+    return '{}';
+  }
+
+  const keys = entries
+    .filter((entry) => entry.type === JsonEntryType.Field)
+    .map((entry) => (entry as JsonEntryField).key);
+
+  const duplicateKeys: readonly string[] = arrayGetPrimitiveDuplicates(keys);
+  if (duplicateKeys.length > 0) {
+    throw new Error(
+      `Duplicate field values: '${JSON.stringify(duplicateKeys)}'`
+    );
+  }
+
+  const entriesString = jsonSerializeEntries(value, options, currentIndent);
+  return getObjectStartString()
+    .concat(entriesString)
+    .concat(getObjectEndString(currentIndent));
+}
+
+function jsonSerializeEntries(
+  value: JsonValueArray | JsonValueObject,
+  options: JsonSerializerOptions,
+  currentIndent: number
+): string {
+  const incrementedIndent = getIncrementedIndent(currentIndent, options);
+  const entries: readonly JsonEntry[] = value.value;
+  const lastEntryWithValueIndex = arrayFindLastIndexOfWithPredicate(
+    entries,
+    (entry) => entry.type !== JsonEntryType.NonValue
+  );
+
+  return entries.reduce((acc, entry, index) => {
+    const isLastEntryWithValue = index === lastEntryWithValueIndex;
+    const entryString = jsonSerializeEntry(
+      entry,
+      options,
+      incrementedIndent,
+      isLastEntryWithValue
+    );
+    return acc.concat(entryString).concat('\n');
+  }, '');
 }
 
 function jsonSerializeEntry(

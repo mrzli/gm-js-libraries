@@ -1,0 +1,29 @@
+{
+  // comment in root
+
+  "fieldNull": null,
+  "fieldString": "string in root", // comment in root, next to string
+  "fieldNumber": 11,
+  "fieldBoolean": true,
+  "fieldEmptyArray": [],
+  "fieldEmptyObject": {},
+  "fieldArray": [
+    // comment in nested array
+
+    null,
+    "string in nested array", // comment in nested array, next to string
+    12,
+    false,
+    [],
+    {},
+    [
+      "string in double nested array"
+    ],
+    {
+      "nestedInArrayField": "nested in array string"
+    }
+  ],
+  "fieldObject": {
+    "nestedField": "nested string"
+  }
+}

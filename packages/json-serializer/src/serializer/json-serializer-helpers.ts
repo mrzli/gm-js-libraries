@@ -35,10 +35,10 @@ export function getPrimitiveValueString(value: JsonPrimitiveValue): string {
 export function getEntryNonValueString(
   entry: JsonEntryNonValue,
   options: JsonSerializerOptions,
-  currentIndent: number
+  indentSize: number
 ): string {
   return hasEntryComment(entry, options)
-    ? `${getIndent(currentIndent)}// ${entry.comment}`
+    ? `${getIndent(indentSize)}// ${entry.comment}`
     : '';
 }
 
@@ -48,13 +48,29 @@ export function getEntryWithValueString(
   meaningfulValueString: string,
   entry: JsonEntryWithValue,
   options: JsonSerializerOptions,
-  currentIndent: number,
+  indentSize: number,
   isLastEntryWithValue: boolean
 ) {
-  return getIndent(currentIndent)
+  return getIndent(indentSize)
     .concat(meaningfulValueString)
     .concat(getDelimiter(isLastEntryWithValue))
     .concat(getEntryWithValueComment(entry, options));
+}
+
+export function getArrayStartString(): string {
+  return '[\n';
+}
+
+export function getArrayEndString(indentSize: number): string {
+  return `${getIndent(indentSize)}]`;
+}
+
+export function getObjectStartString(): string {
+  return '{\n';
+}
+
+export function getObjectEndString(indentSize: number): string {
+  return `${getIndent(indentSize)}}`;
 }
 
 function hasEntryComment(
@@ -80,12 +96,12 @@ function getIndent(indentSize: number): string {
 }
 
 function getDelimiter(isLastEntryWithValue: boolean): string {
-  return isLastEntryWithValue ? ',' : '';
+  return isLastEntryWithValue ? '' : ',';
 }
 
 export function getIncrementedIndent(
-  currentIndent: number,
+  indentSize: number,
   options: JsonSerializerOptions
 ): number {
-  return currentIndent + options.spaces;
+  return indentSize + options.spaces;
 }
