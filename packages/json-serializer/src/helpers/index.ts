@@ -1,1 +1,6 @@
-export { entryFieldString, entryFieldArray, entryFieldObject } from './helpers';
+export {
+  entryArrayItemString,
+  entryFieldString,
+  entryFieldArray,
+  entryFieldObject
+} from './helpers';
