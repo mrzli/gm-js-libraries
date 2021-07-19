@@ -31,7 +31,7 @@ jobs:
         run: |
           cd packages/github-api
           npm run lint
-          npm run prettier:check
+          npm run prettier
       - name: Build Project
         run: |
           cd packages/github-api

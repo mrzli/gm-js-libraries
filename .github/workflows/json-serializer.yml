@@ -31,7 +31,7 @@ jobs:
         run: |
           cd packages/json-serializer
           npm run lint
-          npm run prettier:check
+          npm run prettier
       - name: Test
         run: |
           cd packages/json-serializer
