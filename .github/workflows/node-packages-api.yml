@@ -43,6 +43,7 @@ jobs:
       - name: Publish
         run: |
           cd packages/node-packages-api/dist
+          cp ../package.json .
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

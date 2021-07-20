@@ -9,13 +9,8 @@
     "directory": "packages/github-api"
   },
   "license": "MIT",
-  "files": [
-    "**/*"
-  ],
-  "main": "index.js",
-  "types": "index.d.ts",
   "scripts": {
-    "build": "rm -rf dist && tsc && ts-node src/other/scripts/setup-dist-for-publish.ts",
+    "build": "rm -rf dist && tsc",
     "lint": "eslint --ext .ts .",
     "prettier": "prettier --check .",
     "prettier:write": "prettier --write .",
@@ -34,7 +29,6 @@
     "@graphql-codegen/typescript-document-nodes": "1.17.16",
     "@graphql-codegen/typescript-operations": "1.18.4",
     "@graphql-codegen/typescript-resolvers": "1.20.0",
-    "@mrzli/gm-js-libraries-file-system": "1.0.1",
     "@octokit/graphql-schema": "10.53.0",
     "@types/node": "16.3.3",
     "@typescript-eslint/eslint-plugin": "4.28.3",

@@ -9,11 +9,8 @@
     "directory": "packages/file-system"
   },
   "license": "MIT",
-  "files": [
-    "**/*"
-  ],
   "scripts": {
-    "build": "rm -rf dist && tsc && ts-node src/other/scripts/setup-dist-for-publish.ts",
+    "build": "rm -rf dist && tsc",
     "lint": "eslint --ext .ts .",
     "prettier": "prettier --check .",
     "prettier:write": "prettier --write .",

@@ -47,6 +47,7 @@ jobs:
       - name: Publish
         run: |
           cd packages/json-serializer/dist
+          cp ../package.json .
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
