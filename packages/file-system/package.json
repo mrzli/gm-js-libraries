@@ -1,7 +1,7 @@
 {
   "name": "@mrzli/gm-js-libraries-file-system",
   "description": "Wrapper accessing file system.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "goran.mrzljak@gmail.com",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "lint": "eslint --ext .ts .",
     "prettier": "prettier --check .",
     "prettier:write": "prettier --write .",
-    "manual-test:copy-folder": "ts-node src/other/manual-tests/copy-folder.ts"
+    "manual-test:copy-folder": "ts-node test/manual-tests/copy-folder.ts"
   },
   "dependencies": {
     "copyfiles": "2.4.1",

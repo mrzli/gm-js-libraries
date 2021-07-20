@@ -2,5 +2,5 @@
 /dist/
 /.idea/
 
-/test-data/*
-!/test-data/input-dir/
+/test/test-data/*
+!/test/test-data/input-dir/

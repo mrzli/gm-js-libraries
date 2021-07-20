@@ -1,7 +1,7 @@
 {
   "name": "@mrzli/gm-js-libraries-github-api",
   "description": "Wrapper for accessing GitHub API.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "goran.mrzljak@gmail.com",
   "repository": {
     "type": "git",
