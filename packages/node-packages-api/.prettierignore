@@ -3,4 +3,5 @@
 
 /.eslintrc.js
 /README.md
+/tsconfig.eslint.json
 /tsconfig.json
