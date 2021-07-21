@@ -28,11 +28,59 @@ export function entryArrayItemString(value: string): JsonEntryArrayItem {
   };
 }
 
+export function entryArrayItemNumber(value: number): JsonEntryArrayItem {
+  return {
+    type: JsonEntryType.ArrayItem,
+    value: { type: JsonValueType.Number, value }
+  };
+}
+
+export function entryArrayItemBoolean(value: boolean): JsonEntryArrayItem {
+  return {
+    type: JsonEntryType.ArrayItem,
+    value: { type: JsonValueType.Boolean, value }
+  };
+}
+
+export function entryArrayItemArray(
+  value: readonly JsonEntryArray[]
+): JsonEntryArrayItem {
+  return {
+    type: JsonEntryType.ArrayItem,
+    value: { type: JsonValueType.Array, value }
+  };
+}
+
+export function entryArrayItemObject(
+  value: readonly JsonEntryObject[]
+): JsonEntryArrayItem {
+  return {
+    type: JsonEntryType.ArrayItem,
+    value: { type: JsonValueType.Object, value }
+  };
+}
+
 export function entryFieldString(key: string, value: string): JsonEntryField {
   return {
     type: JsonEntryType.Field,
     key,
     value: { type: JsonValueType.String, value }
+  };
+}
+
+export function entryFieldNumber(key: string, value: number): JsonEntryField {
+  return {
+    type: JsonEntryType.Field,
+    key,
+    value: { type: JsonValueType.Number, value }
+  };
+}
+
+export function entryFieldBoolean(key: string, value: boolean): JsonEntryField {
+  return {
+    type: JsonEntryType.Field,
+    key,
+    value: { type: JsonValueType.Boolean, value }
   };
 }
 
