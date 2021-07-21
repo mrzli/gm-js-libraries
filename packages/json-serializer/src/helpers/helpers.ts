@@ -2,10 +2,24 @@ import {
   JsonEntryArray,
   JsonEntryArrayItem,
   JsonEntryField,
+  JsonEntryNonValue,
   JsonEntryObject,
   JsonEntryType
 } from '../types/json-entry';
 import { JsonValueType } from '../types/json-value';
+
+export function entryEmptyLine(): JsonEntryNonValue {
+  return {
+    type: JsonEntryType.NonValue
+  };
+}
+
+export function entryComment(comment: string): JsonEntryNonValue {
+  return {
+    type: JsonEntryType.NonValue,
+    comment
+  };
+}
 
 export function entryArrayItemString(value: string): JsonEntryArrayItem {
   return {
