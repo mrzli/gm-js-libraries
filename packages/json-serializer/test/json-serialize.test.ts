@@ -7,8 +7,8 @@ import {
   JsonValueType
 } from '../src/types/json-value';
 import { JsonEntryType } from '../src/types/json-entry';
-import { readFileAsString } from '@mrzli/gm-js-libraries-file-system/file-system';
-import { resolvePath } from '@mrzli/gm-js-libraries-file-system/path';
+import { readFileAsString } from '@mrzli/gm-js-libraries-node-utils/file-system';
+import { resolvePath } from '@mrzli/gm-js-libraries-node-utils/path';
 
 describe('json-serialize', () => {
   describe('jsonSerialize()', () => {

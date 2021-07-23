@@ -1,4 +1,4 @@
-name: file-system
+name: node-utils
 
 on:
   workflow_dispatch:
@@ -12,8 +12,8 @@ jobs:
       - name: Cache Node Modules
         uses: actions/cache@v2
         with:
-          path: 'packages/file-system/node_modules'
-          key: ${{ runner.os }}-node-${{ hashFiles('packages/file-system/package-lock.json') }}
+          path: 'packages/node-utils/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('packages/node-utils/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Setup Node
@@ -23,24 +23,24 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - name: Install Node Modules
         run: |
-          cd packages/file-system
+          cd packages/node-utils
           npm ci
       - name: Lint
         run: |
-          cd packages/file-system
+          cd packages/node-utils
           npm run lint
           npm run prettier
       - name: Build Project
         run: |
-          cd packages/file-system
+          cd packages/node-utils
           npm run build
       - name: Prepare for Publish
         run: |
-          cd packages/file-system
+          cd packages/node-utils
           echo "registry=https://npm.pkg.github.com/@mrzli" > .npmrc
       - name: Publish
         run: |
-          cd packages/file-system/dist
+          cd packages/node-utils/dist
           cp ../package.json .
           npm publish
         env:

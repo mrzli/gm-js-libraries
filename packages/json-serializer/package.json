@@ -18,7 +18,7 @@
     "test:ci": "jest --ci"
   },
   "devDependencies": {
-    "@mrzli/gm-js-libraries-file-system": "1.0.2",
+    "@mrzli/gm-js-libraries-node-utils": "1.0.2",
     "@types/jest": "26.0.24",
     "@types/node": "16.3.3",
     "@typescript-eslint/eslint-plugin": "4.28.3",
