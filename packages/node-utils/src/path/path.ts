@@ -5,7 +5,7 @@ export function resolvePath(...pathSegments: readonly string[]): string {
   return path.resolve(...pathSegments);
 }
 
-export function resolvePathFromCwd(pathToResolve: string): string {
+export function resolvePathFromCwd(...pathSegments: readonly string[]): string {
   const cwd = process.cwd();
-  return resolvePath(cwd, pathToResolve);
+  return resolvePath(cwd, ...pathSegments);
 }
