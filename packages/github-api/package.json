@@ -1,7 +1,7 @@
 {
   "name": "@mrzli/gm-js-libraries-github-api",
   "description": "Wrapper for accessing GitHub API.",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "author": "goran.mrzljak@gmail.com",
   "repository": {
     "type": "git",
@@ -21,7 +21,8 @@
     "apollo-client": "2.6.10",
     "apollo-link-http": "1.5.17",
     "axios": "0.21.1",
-    "graphql": "15.5.1"
+    "graphql": "15.5.1",
+    "graphql-tag": "2.12.5"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "1.21.7",
