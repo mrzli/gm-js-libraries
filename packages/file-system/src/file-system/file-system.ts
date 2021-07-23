@@ -80,7 +80,11 @@ export async function copyDirectorySubset(
   });
 }
 
-async function isDirectory(dirPath: string): Promise<boolean> {
-  const stats = await fsPromises.lstat(dirPath);
-  return stats.isDirectory();
+export async function isDirectory(dirPath: string): Promise<boolean> {
+  try {
+    const stats = await fsPromises.lstat(dirPath);
+    return stats.isDirectory();
+  } catch {
+    return false;
+  }
 }

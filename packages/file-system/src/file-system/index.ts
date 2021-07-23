@@ -6,5 +6,6 @@ export {
   removeFileSystemEntries,
   removeFileSystemEntriesInDirectory,
   copyDirectory,
-  copyDirectorySubset
+  copyDirectorySubset,
+  isDirectory
 } from './file-system';
