@@ -1,8 +1,9 @@
-import { createAuthorizationHeader } from './helpers';
-
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache, NormalizedCacheObject } from 'apollo-cache-inmemory';
+import { createAuthorizationHeader } from './helpers';
+
+import 'cross-fetch/polyfill';
 
 export function createGithubClientGraphql(
   githubToken: string
