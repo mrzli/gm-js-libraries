@@ -9,3 +9,7 @@ export function resolvePathFromCwd(...pathSegments: readonly string[]): string {
   const cwd = process.cwd();
   return resolvePath(cwd, ...pathSegments);
 }
+
+export function joinPath(...pathSegments: readonly string[]): string {
+  return path.join(...pathSegments);
+}

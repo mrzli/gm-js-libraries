@@ -5,4 +5,5 @@
 /README.md
 /tsconfig.json
 
+/test/jest.config.js
 /test/tsconfig.json

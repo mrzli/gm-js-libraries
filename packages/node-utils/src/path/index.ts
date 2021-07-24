@@ -1,1 +1,1 @@
-export { resolvePath, resolvePathFromCwd } from './path';
+export { resolvePath, resolvePathFromCwd, joinPath } from './path';

@@ -9,3 +9,9 @@ export {
   copyDirectorySubset,
   isDirectory
 } from './file-system';
+
+export {
+  getDirectoryFilePaths,
+  GetFilePathsUnderDirectoryRecursivelySortOrder,
+  GetFilePathsUnderDirectoryRecursivelyOptions
+} from './get-directory-file-paths';
