@@ -1,6 +1,6 @@
-import { SimpleValue } from '../../src/types';
-import { Nullish } from '../../src/types/generic';
-import { arrayHasPrimitiveDuplicates } from '../../src/array';
+import { SimpleValue } from '../../../src/types';
+import { Nullish } from '../../../src/types/generic';
+import { arrayHasPrimitiveDuplicates } from '../../../src/array';
 
 describe('array-checker', () => {
   describe('arrayHasPrimitiveDuplicates()', () => {

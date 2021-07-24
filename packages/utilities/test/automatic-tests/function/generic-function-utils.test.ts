@@ -2,7 +2,7 @@ import {
   alwaysFalsePredicate,
   alwaysTruePredicate,
   identifyFn
-} from '../../src/function/generic-function-utils';
+} from '../../../src/function/generic-function-utils';
 
 describe('generic-function-utils', () => {
   const EXAMPLE_ARRAY: readonly number[] = [1, 2, 3, 4, 5];

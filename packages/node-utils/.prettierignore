@@ -3,5 +3,6 @@
 
 /.eslintrc.js
 /README.md
-/tsconfig.eslint.json
 /tsconfig.json
+
+/test/tsconfig.json

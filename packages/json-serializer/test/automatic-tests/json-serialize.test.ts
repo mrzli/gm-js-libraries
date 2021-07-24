@@ -1,12 +1,12 @@
-import { jsonSerialize } from '../src/serializer/json-serializer';
-import { JsonSerializerOptions } from '../src/types/json-serializer-options';
+import { jsonSerialize } from '../../src/serializer/json-serializer';
+import { JsonSerializerOptions } from '../../src/types/json-serializer-options';
 import {
   JsonValue,
   JsonValueArray,
   JsonValueObject,
   JsonValueType
-} from '../src/types/json-value';
-import { JsonEntryType } from '../src/types/json-entry';
+} from '../../src/types/json-value';
+import { JsonEntryType } from '../../src/types/json-entry';
 import { readFileAsString } from '@mrzli/gm-js-libraries-node-utils/file-system';
 import { resolvePath } from '@mrzli/gm-js-libraries-node-utils/path';
 

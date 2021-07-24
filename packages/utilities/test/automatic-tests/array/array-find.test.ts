@@ -1,4 +1,4 @@
-import { arrayFindLastIndexOfWithPredicate } from '../../src/array';
+import { arrayFindLastIndexOfWithPredicate } from '../../../src/array';
 
 describe('array-find', () => {
   describe('arrayFindLastIndexOfWithPredicate()', () => {

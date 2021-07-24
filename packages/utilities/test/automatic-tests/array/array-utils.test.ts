@@ -1,6 +1,6 @@
-import { SimpleValue } from '../../src/types';
-import { arrayGetPrimitiveDuplicates } from '../../src/array';
-import { Nullish } from '../../src/types/generic';
+import { SimpleValue } from '../../../src/types';
+import { arrayGetPrimitiveDuplicates } from '../../../src/array';
+import { Nullish } from '../../../src/types/generic';
 
 describe('array-utils', () => {
   describe('arrayGetPrimitiveDuplicates()', () => {

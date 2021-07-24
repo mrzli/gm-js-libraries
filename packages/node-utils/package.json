@@ -1,7 +1,7 @@
 {
   "name": "@mrzli/gm-js-libraries-node-utils",
   "description": "Wrapper for accessing some built-in node libraries.",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "goran.mrzljak@gmail.com",
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
     "lint": "eslint --ext .ts .",
     "prettier": "prettier --check .",
     "prettier:write": "prettier --write .",
-    "manual-test:copy-folder": "ts-node test/manual-tests/copy-folder.ts"
+    "manual-test:copy-folder": "ts-node --project test/tsconfig.json test/manual-tests/copy-folder.ts"
   },
   "dependencies": {
     "copyfiles": "2.4.1",
