@@ -3,8 +3,6 @@ export {
   EmptyObject,
   NumberMapOfValues,
   StringMapOfValues,
-  ReadonlyPick,
-  ReadonlyOmit,
   ReadonlyRecord,
   AnyObject
 } from './generic';
