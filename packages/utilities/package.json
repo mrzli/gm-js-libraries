@@ -1,7 +1,7 @@
 {
   "name": "@mrzli/gm-js-libraries-utilities",
   "description": "JS (TS) utilities.",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "goran.mrzljak@gmail.com",
   "repository": {
     "type": "git",
@@ -17,9 +17,13 @@
     "test": "jest --config test/jest.config.js",
     "test:ci": "jest --config test/jest.config.js --ci"
   },
+  "dependencies": {
+    "uuid": "8.3.2"
+  },
   "devDependencies": {
     "@types/jest": "26.0.24",
     "@types/node": "16.4.1",
+    "@types/uuid": "8.3.1",
     "@typescript-eslint/eslint-plugin": "4.28.4",
     "eslint": "7.31.0",
     "eslint-config-prettier": "8.3.0",
