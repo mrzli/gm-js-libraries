@@ -5,5 +5,5 @@
 /tsconfig.json
 /package.json
 
-/test/.jest.config.js
+/test/jest.config.js
 /test/tsconfig.json
