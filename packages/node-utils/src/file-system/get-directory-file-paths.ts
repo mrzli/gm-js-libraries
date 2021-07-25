@@ -68,7 +68,7 @@ async function getDirectoryFilePathsImpl(
     if (pathData.isDirectory) {
       const currentSubDirEntries = await getDirectoryFilePathsImpl(
         baseDirPath,
-        joinPath(subDirPath, pathData.entryPath),
+        pathData.entryPath,
         options
       );
       result.push(...currentSubDirEntries);
