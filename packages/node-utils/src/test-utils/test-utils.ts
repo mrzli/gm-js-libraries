@@ -1,11 +1,12 @@
 import { getRandomUuid } from '@mrzli/gm-js-libraries-utilities/uuid';
 import { resolvePath } from '../path';
 import { makeDirectory, removeFileSystemEntry } from '../file-system';
+import { Fn0 } from '@mrzli/gm-js-libraries-utilities/types';
 
 export type TestDirectoryDoWork = (dirPath: string) => Promise<void>;
 
 export interface TestDirectoryManager {
-  usingTemporaryDirectory: (doWork: TestDirectoryDoWork) => Promise<void>;
+  usingTemporaryDirectory: (doWork: TestDirectoryDoWork) => Fn0<Promise<void>>;
 }
 
 export function createTestDirectoryManager(
@@ -17,10 +18,12 @@ export function createTestDirectoryManager(
 class TestDirectoryManagerImpl implements TestDirectoryManager {
   constructor(private readonly parentDir: string) {}
 
-  public async usingTemporaryDirectory(
+  public usingTemporaryDirectory(
     doWork: TestDirectoryDoWork
-  ): Promise<void> {
-    await usingTemporaryDirectoryImpl(this.parentDir, doWork);
+  ): Fn0<Promise<void>> {
+    return async () => {
+      await usingTemporaryDirectoryImpl(this.parentDir, doWork);
+    };
   }
 }
 
