@@ -5,9 +5,11 @@ export {
 
 export {
   millisecondSinceEpochToDate,
-  millisecondsSinceEpochToIsoStringUtc,
+  millisecondsSinceEpochToIsoStringPreciseUtc,
   isoStringToMillisecondsSinceEpoch,
-  isoStringUtcToDate,
+  isoStringPreciseUtcToDate,
   dateToMillisecondsSinceEpoch,
-  dateToIsoStringUtc
+  dateToIsoStringPreciseUtc,
+  isoStringPreciseUtcToIsoStringNonPreciseUtc,
+  isoStringNonPreciseUtcToIsoStringPreciseUtc
 } from './date-utils';
