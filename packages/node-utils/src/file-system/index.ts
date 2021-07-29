@@ -1,4 +1,6 @@
 export {
+  readFileAsBinary,
+  writeBinaryToFile,
   readFileAsString,
   writeStringToFile,
   makeDirectory,

@@ -3,6 +3,17 @@ import { promises as fsPromises } from 'fs';
 import fsExtra from 'fs-extra';
 import copyfiles from 'copyfiles';
 
+export async function readFileAsBinary(filePath: string): Promise<Buffer> {
+  return fsPromises.readFile(filePath);
+}
+
+export async function writeBinaryToFile(
+  filePath: string,
+  data: Buffer
+): Promise<void> {
+  return fsPromises.writeFile(filePath, data);
+}
+
 export async function readFileAsString(filePath: string): Promise<string> {
   return fsPromises.readFile(filePath, { encoding: 'utf-8' });
 }
