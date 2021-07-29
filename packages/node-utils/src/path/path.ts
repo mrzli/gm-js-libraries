@@ -13,3 +13,7 @@ export function resolvePathFromCwd(...pathSegments: readonly string[]): string {
 export function joinPath(...pathSegments: readonly string[]): string {
   return path.join(...pathSegments);
 }
+
+export function getFileDirectory(filePath: string): string {
+  return path.dirname(filePath);
+}
