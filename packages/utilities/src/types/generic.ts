@@ -1,8 +1,7 @@
 export type SimpleValue = string | number | boolean;
 
 export type EmptyObject = {
-  readonly // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [K in any]: never;
+  readonly [K in any]: never; // eslint-disable-line @typescript-eslint/no-explicit-any
 };
 
 export type NumberMapOfValues<TValue> = {
