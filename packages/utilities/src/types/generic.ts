@@ -1,7 +1,9 @@
 export type SimpleValue = string | number | boolean;
 
+const hiddenSymbol = Symbol();
+
 export type EmptyObject = {
-  readonly [K in any]: never; // eslint-disable-line @typescript-eslint/no-explicit-any
+  readonly [hiddenSymbol]: never;
 };
 
 export type NumberMapOfValues<TValue> = {
