@@ -7,6 +7,5 @@ export function isRouteMatch(
 ): boolean {
   const matchFn = match(route, { decode: decodeURIComponent, end: exact });
   const matchResult = matchFn(path);
-  console.log(path, route, matchResult);
   return matchResult !== false;
 }
