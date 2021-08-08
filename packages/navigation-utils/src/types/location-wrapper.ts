@@ -7,16 +7,19 @@ export interface LocationWrapper {
   readonly getHostname: () => string;
   readonly getPort: () => string;
   readonly getPathname: () => string;
-  readonly getSearch: () => string;
   readonly getHash: () => string;
   readonly getLocationObject: () => LocationObject;
   readonly getSearchObject: () => SearchObject;
-  readonly setHref: (href: string) => void;
-  readonly setPathname: (pathname: string) => void;
-  readonly setSearch: (searchParams: StringMapOfValues<string>) => void;
-  readonly setPathNameAndSearch: (
+  readonly setHref: (href: string, forceReload?: boolean) => void;
+  readonly setPathname: (pathname: string, forceReload?: boolean) => void;
+  readonly setSearch: (
+    searchParams: StringMapOfValues<string>,
+    forceReload?: boolean
+  ) => void;
+  readonly setPathnameAndSearch: (
     pathname: string,
-    searchParams: StringMapOfValues<string>
+    searchParams: StringMapOfValues<string>,
+    forceReload?: boolean
   ) => void;
   readonly reloadPage: () => void;
 }
@@ -28,8 +31,8 @@ export interface LocationObject {
   readonly hostname: string; // always present
   readonly port: string; // can be an empty string
   readonly pathname: string; // can be an empty string
-  readonly search: string; // can be an empty string, here without '?'
   readonly hash: string; // can be an empty string, here without '#'
+  readonly searchObject: SearchObject;
 }
 
 export type SearchObject = {

@@ -1,45 +1,52 @@
+import urlParse from 'url-parse';
 import {
   LocationObject,
   LocationWrapper,
   SearchObject
 } from '../types/location-wrapper';
-import {
-  ReadonlyTuple2,
-  StringMapOfValues
-} from '@mrzli/gm-js-libraries-utilities/types';
+import { StringMapOfValues } from '@mrzli/gm-js-libraries-utilities/types';
+import URLParse from 'url-parse';
 
 export function createLocationWrapper(): LocationWrapper {
   const location = window.location;
 
   return {
-    getHref: () => location.href,
-    getProtocol: () => location.protocol.slice(0, -1),
-    getHost: () => location.host,
-    getHostname: () => location.hostname,
-    getPort: () => location.port,
-    getPathname: () => location.pathname,
-    getSearch: () => skipFirst(location.search),
-    getHash: () => skipFirst(location.hash),
+    getHref: () => getUrlObject(location).href,
+    getProtocol: () => getUrlObject(location).protocol.slice(0, -1),
+    getHost: () => getUrlObject(location).host,
+    getHostname: () => getUrlObject(location).hostname,
+    getPort: () => getUrlObject(location).port,
+    getPathname: () => getUrlObject(location).pathname,
+    getHash: () => skipFirst(getUrlObject(location).hash),
     getLocationObject: () => getLocationObject(location),
-    getSearchObject: () => getSearchObject(location),
-    setHref: (href: string) => {
-      location.href = href;
+    getSearchObject: () => getSearchObject(getUrlObject(location)),
+    setHref: (href: string, forceReload?: boolean) => {
+      if (forceReload || href !== location.href) {
+        location.href = href;
+      }
     },
-    setPathname: (pathname: string) => {
-      location.pathname = pathname;
-      location.reload();
+    setPathname: (pathname: string, forceReload?: boolean) => {
+      const urlObject = getUrlObject(location);
+      urlObject.set('pathname', pathname);
+      setHref(location, urlObject, forceReload ?? false);
     },
-    setSearch: (searchParams: StringMapOfValues<string>) => {
-      location.search = searchParamsToSearchString(searchParams);
-      location.reload();
-    },
-    setPathNameAndSearch: (
-      pathname: string,
-      searchParams: StringMapOfValues<string>
+    setSearch: (
+      searchParams: StringMapOfValues<string>,
+      forceReload?: boolean
     ) => {
-      location.pathname = pathname;
-      location.search = searchParamsToSearchString(searchParams);
-      location.reload();
+      const urlObject = getUrlObject(location);
+      urlObject.set('query', toQueryObject(searchParams));
+      setHref(location, urlObject, forceReload ?? false);
+    },
+    setPathnameAndSearch: (
+      pathname: string,
+      searchParams: StringMapOfValues<string>,
+      forceReload?: boolean
+    ) => {
+      const urlObject = getUrlObject(location);
+      urlObject.set('pathname', pathname);
+      urlObject.set('query', toQueryObject(searchParams));
+      setHref(location, urlObject, forceReload ?? false);
     },
     reloadPage: () => {
       location.reload();
@@ -47,32 +54,36 @@ export function createLocationWrapper(): LocationWrapper {
   };
 }
 
+function getUrlObject(location: Location): URLParse {
+  return urlParse(location.href, true);
+}
+
 function getLocationObject(location: Location): LocationObject {
+  const urlObject = getUrlObject(location);
   return {
-    href: location.href,
-    protocol: location.protocol.slice(0, -1),
-    host: location.host,
-    hostname: location.hostname,
-    port: location.port,
-    pathname: location.pathname,
-    search: skipFirst(location.search),
-    hash: skipFirst(location.hash)
+    href: urlObject.href,
+    protocol: urlObject.protocol.slice(0, -1),
+    host: urlObject.host,
+    hostname: urlObject.hostname,
+    port: urlObject.port,
+    pathname: urlObject.pathname,
+    hash: skipFirst(urlObject.hash),
+    searchObject: getSearchObject(urlObject)
   };
 }
 
-function getSearchObject(location: Location): SearchObject {
-  const search = skipFirst(location.search);
-  const searchPairs: readonly ReadonlyTuple2<string, string>[] = search
-    .split('&')
-    .map(
-      (item) => item.split('=') as unknown as ReadonlyTuple2<string, string>
-    );
-  const keys = searchPairs.map((pair) => pair[0]);
+interface ObjectWithStrings {
+  [key: string]: string;
+}
 
-  const entries = searchPairs.reduce((acc, pair) => {
-    acc[pair[0]] = decodeURIComponent(pair[1]);
+function getSearchObject(urlObject: URLParse): SearchObject {
+  const queryObject = urlObject.query;
+  const keys = Object.keys(queryObject);
+
+  const entries = keys.reduce((acc, key) => {
+    acc[key] = queryObject[key] ?? '';
     return acc;
-  }, {} as { [key: string]: string });
+  }, {} as ObjectWithStrings);
 
   return {
     keys,
@@ -80,20 +91,25 @@ function getSearchObject(location: Location): SearchObject {
   };
 }
 
-function searchParamsToSearchString(
+function toQueryObject(
   searchParams: StringMapOfValues<string>
-): string {
-  const pairsString = Object.keys(searchParams)
-    .map(
-      (key) =>
-        `${encodeURIComponent(key)}=${encodeURIComponent(
-          searchParams[key] ?? ''
-        )}`
-    )
-    .join('&');
-  return `?${pairsString}`;
+): ObjectWithStrings {
+  return Object.keys(searchParams).reduce((acc, key) => {
+    acc[key] = searchParams[key] ?? '';
+    return acc;
+  }, {} as ObjectWithStrings);
 }
 
 function skipFirst(value: string): string {
   return value.length > 0 ? value.slice(1) : value;
+}
+
+function setHref(
+  location: Location,
+  urlObject: URLParse,
+  force: boolean
+): void {
+  if (force || urlObject.href !== location.href) {
+    location.href = urlObject.href;
+  }
 }
