@@ -1,1 +1,1 @@
-export { parseInteger } from './number-utils';
+export { parseInteger, padNonNegativeIntWithZeroes } from './number-utils';
