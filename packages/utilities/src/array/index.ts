@@ -1,3 +1,8 @@
+export {
+  createArrayOfLength,
+  fillArrayOfLengthWithValue,
+  fillArrayOfLengthWithValueMapper
+} from './array-creation-utils';
 export { arrayHasPrimitiveDuplicates } from './array-checker';
 export { arrayGetPrimitiveDuplicates } from './array-utils';
 export { arrayFindLastIndexOfWithPredicate } from './array-find';
