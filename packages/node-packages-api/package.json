@@ -1,7 +1,7 @@
 {
   "name": "@mrzli/gm-js-libraries-node-packages-api",
   "description": "Wrapper for accessing Node Packages.",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": "goran.mrzljak@gmail.com",
   "repository": {
     "type": "git",

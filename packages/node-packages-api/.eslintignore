@@ -1,5 +1,2 @@
 /dist/
-/src/graphql/generated/
-
-/.eslintrc.js
-/.prettierrc.js
+/*.js
