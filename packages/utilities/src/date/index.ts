@@ -13,3 +13,5 @@ export {
   isoStringPreciseUtcToIsoStringNonPreciseUtc,
   isoStringNonPreciseUtcToIsoStringPreciseUtc,
 } from './date-utils';
+
+export { addTime, TimeUnit } from './date-arithmetic';
