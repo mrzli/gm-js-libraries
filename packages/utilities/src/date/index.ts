@@ -10,6 +10,7 @@ export {
   isoStringPreciseUtcToDate,
   dateToMillisecondsSinceEpoch,
   dateToIsoStringPreciseUtc,
+  dateToHttpFormat,
   isoStringPreciseUtcToIsoStringNonPreciseUtc,
   isoStringNonPreciseUtcToIsoStringPreciseUtc,
 } from './date-utils';

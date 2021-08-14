@@ -1,3 +1,5 @@
+import { DateTime } from 'luxon';
+
 const ISO_PRECISE_UTC_FORMAT = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z/;
 const ISO_NON_PRECISE_UTC_FORMAT = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/;
 
@@ -32,6 +34,12 @@ export function dateToMillisecondsSinceEpoch(date: Date): number {
 
 export function dateToIsoStringPreciseUtc(date: Date): string {
   return date.toISOString();
+}
+
+export function dateToHttpFormat(date: Date): string {
+  return DateTime.fromJSDate(date, { zone: 'UTC' }).toFormat(
+    "ccc, dd LLL yyyy HH:mm:ss 'GMT'"
+  );
 }
 
 export function isoStringPreciseUtcToIsoStringNonPreciseUtc(

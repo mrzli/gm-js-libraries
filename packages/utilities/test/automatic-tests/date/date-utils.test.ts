@@ -7,6 +7,7 @@ import {
   millisecondsSinceEpochToIsoStringPreciseUtc,
   isoStringPreciseUtcToIsoStringNonPreciseUtc,
   isoStringNonPreciseUtcToIsoStringPreciseUtc,
+  dateToHttpFormat,
 } from '../../../src/date';
 
 describe('date-utils', () => {
@@ -269,6 +270,41 @@ describe('date-utils', () => {
     EXAMPLES.forEach((example) => {
       it(JSON.stringify(example), () => {
         const actual = dateToIsoStringPreciseUtc(example.input);
+        expect(actual).toEqual(example.expected);
+      });
+    });
+  });
+
+  describe('dateToHttpFormat()', () => {
+    const EXAMPLE_HTTP_DATES: readonly string[] = [
+      'Fri, 01 Jan 2021 00:00:00 GMT',
+      'Mon, 19 Dec 2022 19:43:33 GMT',
+      'Wed, 20 Mar 1985 10:33:13 GMT',
+      'Tue, 31 Mar 2020 08:19:42 GMT',
+      'Thu, 04 Dec 1997 18:38:06 GMT',
+      'Sun, 21 Aug 2011 10:56:02 GMT',
+      'Tue, 16 Aug 2005 16:24:11 GMT',
+      'Mon, 16 Sep 1996 20:53:40 GMT',
+      'Thu, 09 Feb 2017 11:14:05 GMT',
+      'Fri, 11 Mar 2005 00:17:14 GMT',
+      'Tue, 26 Mar 1996 11:44:26 GMT',
+    ];
+
+    interface Example {
+      readonly input: Date;
+      readonly expected: string;
+    }
+
+    const EXAMPLES: readonly Example[] = EXAMPLE_ISO_PRECISE_DATES.map(
+      (_isoDate, index) => ({
+        input: new Date(EXAMPLE_ISO_PRECISE_DATES[index] as string),
+        expected: EXAMPLE_HTTP_DATES[index] as string,
+      })
+    );
+
+    EXAMPLES.forEach((example) => {
+      it(JSON.stringify(example), () => {
+        const actual = dateToHttpFormat(example.input);
         expect(actual).toEqual(example.expected);
       });
     });
