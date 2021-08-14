@@ -28,3 +28,14 @@ export function arrayGetPrimitiveDuplicates<TItem extends Nullish<SimpleValue>>(
 
   return Array.from(duplicateSet);
 }
+
+export function flatMap<TItemInput, TItemResult>(
+  array: readonly TItemInput[],
+  mapper: (item: TItemInput) => readonly TItemResult[]
+): readonly TItemResult[] {
+  return array.reduce<TItemResult[]>((acc, item) => {
+    const mapped = mapper(item);
+    acc.push(...mapped);
+    return acc;
+  }, []);
+}
