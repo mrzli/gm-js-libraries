@@ -2,5 +2,5 @@ export {
   emptyFn,
   identifyFn,
   alwaysTruePredicate,
-  alwaysFalsePredicate
+  alwaysFalsePredicate,
 } from './generic-function-utils';

@@ -12,56 +12,56 @@ describe('array-utils', () => {
     const EXAMPLES: readonly Example[] = [
       {
         input: [],
-        expected: []
+        expected: [],
       },
       {
         input: [0, false, '', undefined, null],
-        expected: []
+        expected: [],
       },
       {
         input: [1, '1'],
-        expected: []
+        expected: [],
       },
       {
         input: [1, 2, 3],
-        expected: []
+        expected: [],
       },
       {
         input: ['a', 'b', 'c'],
-        expected: []
+        expected: [],
       },
       {
         input: [true, false],
-        expected: []
+        expected: [],
       },
       {
         input: ['', ' '],
-        expected: []
+        expected: [],
       },
       {
         input: [1, 2, 1],
-        expected: [1]
+        expected: [1],
       },
       {
         input: [true, false, true],
-        expected: [true]
+        expected: [true],
       },
       {
         input: ['a', 'b', 'a'],
-        expected: ['a']
+        expected: ['a'],
       },
       {
         input: [1, 2, 1, 1],
-        expected: [1]
+        expected: [1],
       },
       {
         input: [1, 2, 1, 2],
-        expected: [1, 2]
+        expected: [1, 2],
       },
       {
         input: [2, 1, 2, 1],
-        expected: [2, 1]
-      }
+        expected: [2, 1],
+      },
     ];
 
     EXAMPLES.forEach((example) => {

@@ -12,44 +12,44 @@ describe('array-checker', () => {
     const EXAMPLES: readonly Example[] = [
       {
         input: [],
-        expected: false
+        expected: false,
       },
       {
         input: [0, false, '', undefined, null],
-        expected: false
+        expected: false,
       },
       {
         input: [1, '1'],
-        expected: false
+        expected: false,
       },
       {
         input: [1, 2, 3],
-        expected: false
+        expected: false,
       },
       {
         input: ['a', 'b', 'c'],
-        expected: false
+        expected: false,
       },
       {
         input: [true, false],
-        expected: false
+        expected: false,
       },
       {
         input: ['', ' '],
-        expected: false
+        expected: false,
       },
       {
         input: [1, 2, 1],
-        expected: true
+        expected: true,
       },
       {
         input: [true, false, true],
-        expected: true
+        expected: true,
       },
       {
         input: ['a', 'b', 'a'],
-        expected: true
-      }
+        expected: true,
+      },
     ];
 
     EXAMPLES.forEach((example) => {

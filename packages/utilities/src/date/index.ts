@@ -1,6 +1,6 @@
 export {
   createVolatileDateTimeApi,
-  DateVolatileApi
+  DateVolatileApi,
 } from './date-volatile-api';
 
 export {
@@ -11,5 +11,5 @@ export {
   dateToMillisecondsSinceEpoch,
   dateToIsoStringPreciseUtc,
   isoStringPreciseUtcToIsoStringNonPreciseUtc,
-  isoStringNonPreciseUtcToIsoStringPreciseUtc
+  isoStringNonPreciseUtcToIsoStringPreciseUtc,
 } from './date-utils';

@@ -3,7 +3,7 @@ import {
   compareFnNumberDesc,
   compareFnStringAsc,
   compareFnStringDesc,
-  sortArray
+  sortArray,
 } from '../../../src/array/array-sort';
 
 describe('array-sort-utils', () => {
@@ -24,53 +24,53 @@ describe('array-sort-utils', () => {
         {
           input: {
             array: [],
-            compareFn: compareFnNumberAsc
+            compareFn: compareFnNumberAsc,
           },
           expected: {
             updated: [],
-            original: []
-          }
+            original: [],
+          },
         },
         {
           input: {
             array: [1],
-            compareFn: compareFnNumberAsc
+            compareFn: compareFnNumberAsc,
           },
           expected: {
             updated: [1],
-            original: [1]
-          }
+            original: [1],
+          },
         },
         {
           input: {
             array: [1, 2],
-            compareFn: compareFnNumberAsc
+            compareFn: compareFnNumberAsc,
           },
           expected: {
             updated: [1, 2],
-            original: [1, 2]
-          }
+            original: [1, 2],
+          },
         },
         {
           input: {
             array: [3, 1, 2],
-            compareFn: compareFnNumberAsc
+            compareFn: compareFnNumberAsc,
           },
           expected: {
             updated: [1, 2, 3],
-            original: [3, 1, 2]
-          }
+            original: [3, 1, 2],
+          },
         },
         {
           input: {
             array: [3, 1, 2],
-            compareFn: compareFnNumberDesc
+            compareFn: compareFnNumberDesc,
           },
           expected: {
             updated: [3, 2, 1],
-            original: [3, 1, 2]
-          }
-        }
+            original: [3, 1, 2],
+          },
+        },
       ];
 
       EXAMPLES.forEach((example) => {
@@ -99,103 +99,103 @@ describe('array-sort-utils', () => {
         {
           input: {
             array: [],
-            compareFn: compareFnStringAsc
+            compareFn: compareFnStringAsc,
           },
           expected: {
             updated: [],
-            original: []
-          }
+            original: [],
+          },
         },
         {
           input: {
             array: ['a'],
-            compareFn: compareFnStringAsc
+            compareFn: compareFnStringAsc,
           },
           expected: {
             updated: ['a'],
-            original: ['a']
-          }
+            original: ['a'],
+          },
         },
         {
           input: {
             array: ['a', 'b'],
-            compareFn: compareFnStringAsc
+            compareFn: compareFnStringAsc,
           },
           expected: {
             updated: ['a', 'b'],
-            original: ['a', 'b']
-          }
+            original: ['a', 'b'],
+          },
         },
         {
           input: {
             array: ['A', 'a', 'B', 'b'],
-            compareFn: compareFnStringAsc
+            compareFn: compareFnStringAsc,
           },
           expected: {
             updated: ['A', 'a', 'B', 'b'],
-            original: ['A', 'a', 'B', 'b']
-          }
+            original: ['A', 'a', 'B', 'b'],
+          },
         },
         {
           input: {
             array: ['A', 'a'],
-            compareFn: compareFnStringAsc
+            compareFn: compareFnStringAsc,
           },
           expected: {
             updated: ['A', 'a'],
-            original: ['A', 'a']
-          }
+            original: ['A', 'a'],
+          },
         },
         {
           input: {
             array: ['a', 'A'],
-            compareFn: compareFnStringAsc
+            compareFn: compareFnStringAsc,
           },
           expected: {
             updated: ['a', 'A'],
-            original: ['a', 'A']
-          }
+            original: ['a', 'A'],
+          },
         },
         {
           input: {
             array: ['b', 'aa'],
-            compareFn: compareFnStringAsc
+            compareFn: compareFnStringAsc,
           },
           expected: {
             updated: ['aa', 'b'],
-            original: ['b', 'aa']
-          }
+            original: ['b', 'aa'],
+          },
         },
         {
           input: {
             array: ['b', 'aa', 'c'],
-            compareFn: compareFnStringDesc
+            compareFn: compareFnStringDesc,
           },
           expected: {
             updated: ['c', 'b', 'aa'],
-            original: ['b', 'aa', 'c']
-          }
+            original: ['b', 'aa', 'c'],
+          },
         },
         {
           input: {
             array: ['A', 'a'],
-            compareFn: compareFnStringDesc
+            compareFn: compareFnStringDesc,
           },
           expected: {
             updated: ['A', 'a'],
-            original: ['A', 'a']
-          }
+            original: ['A', 'a'],
+          },
         },
         {
           input: {
             array: ['a', 'A'],
-            compareFn: compareFnStringDesc
+            compareFn: compareFnStringDesc,
           },
           expected: {
             updated: ['a', 'A'],
-            original: ['a', 'A']
-          }
-        }
+            original: ['a', 'A'],
+          },
+        },
       ];
 
       EXAMPLES.forEach((example) => {

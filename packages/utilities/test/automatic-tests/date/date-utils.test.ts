@@ -6,7 +6,7 @@ import {
   millisecondSinceEpochToDate,
   millisecondsSinceEpochToIsoStringPreciseUtc,
   isoStringPreciseUtcToIsoStringNonPreciseUtc,
-  isoStringNonPreciseUtcToIsoStringPreciseUtc
+  isoStringNonPreciseUtcToIsoStringPreciseUtc,
 } from '../../../src/date';
 
 describe('date-utils', () => {
@@ -21,7 +21,7 @@ describe('date-utils', () => {
     '1996-09-16T20:53:40.000Z',
     '2017-02-09T11:14:05.000Z',
     '2005-03-11T00:17:14.000Z',
-    '1996-03-26T11:44:26.000Z'
+    '1996-03-26T11:44:26.000Z',
   ];
 
   const EXAMPLE_ISO_PRECISE_DATES_WITH_ZERO_MILLISECONDS: readonly string[] = [
@@ -35,7 +35,7 @@ describe('date-utils', () => {
     '1996-09-16T20:53:40.000Z',
     '2017-02-09T11:14:05.000Z',
     '2005-03-11T00:17:14.000Z',
-    '1996-03-26T11:44:26.000Z'
+    '1996-03-26T11:44:26.000Z',
   ];
 
   const EXAMPLE_ISO_NON_PRECISE_DATES: readonly string[] = [
@@ -49,13 +49,13 @@ describe('date-utils', () => {
     '1996-09-16T20:53:40Z',
     '2017-02-09T11:14:05Z',
     '2005-03-11T00:17:14Z',
-    '1996-03-26T11:44:26Z'
+    '1996-03-26T11:44:26Z',
   ];
 
   const EXAMPLE_TIMESTAMPS: readonly number[] = [
     1609459200000, 1671479013000, 480162793015, 1585642782300, 881260686000,
     1313924162000, 1124209451000, 842907220000, 1486638845000, 1110500234000,
-    827840666000
+    827840666000,
   ];
 
   const EXAMPLE_INVALID_ISO_PRECISE_UTC_DATES: readonly string[] = [
@@ -75,7 +75,7 @@ describe('date-utils', () => {
     // '2020-01-01T00:00:00.000Z', // this one is ok
     '2020-01-01T00:00:00.000+00:00',
     '2020-01-01T00:00:00.000+01:00',
-    '2020-01-01T00:00:00.000+0100'
+    '2020-01-01T00:00:00.000+0100',
   ];
 
   const EXAMPLE_INVALID_ISO_NON_PRECISE_UTC_DATES: readonly string[] = [
@@ -95,7 +95,7 @@ describe('date-utils', () => {
     '2020-01-01T00:00:00.000Z',
     '2020-01-01T00:00:00.000+00:00',
     '2020-01-01T00:00:00.000+01:00',
-    '2020-01-01T00:00:00.000+0100'
+    '2020-01-01T00:00:00.000+0100',
   ];
 
   interface IsoTimestampPair {
@@ -107,7 +107,7 @@ describe('date-utils', () => {
     EXAMPLE_ISO_PRECISE_DATES.map((_value, index) => {
       return {
         iso: EXAMPLE_ISO_PRECISE_DATES[index] as string,
-        timestamp: EXAMPLE_TIMESTAMPS[index] as number
+        timestamp: EXAMPLE_TIMESTAMPS[index] as number,
       };
     });
 
@@ -123,7 +123,7 @@ describe('date-utils', () => {
         precise: EXAMPLE_ISO_PRECISE_DATES[index] as string,
         nonPrecise: EXAMPLE_ISO_NON_PRECISE_DATES[index] as string,
         preciseWithZeroMilliseconds:
-          EXAMPLE_ISO_PRECISE_DATES_WITH_ZERO_MILLISECONDS[index] as string
+          EXAMPLE_ISO_PRECISE_DATES_WITH_ZERO_MILLISECONDS[index] as string,
       };
     });
 
@@ -323,7 +323,7 @@ describe('date-utils', () => {
       const EXAMPLES: readonly Example[] = EXAMPLE_ISO_PRECISION_TUPLE.map(
         (tuple) => ({
           input: tuple.nonPrecise,
-          expected: tuple.preciseWithZeroMilliseconds
+          expected: tuple.preciseWithZeroMilliseconds,
         })
       );
 
@@ -344,7 +344,7 @@ describe('date-utils', () => {
 
       const EXAMPLES: readonly Example[] =
         EXAMPLE_INVALID_ISO_NON_PRECISE_UTC_DATES.map((str) => ({
-          input: str
+          input: str,
         }));
 
       EXAMPLES.forEach((example) => {

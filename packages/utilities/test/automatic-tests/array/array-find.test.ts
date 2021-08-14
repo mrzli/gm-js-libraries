@@ -12,24 +12,24 @@ describe('array-find', () => {
     const EXAMPLES: readonly Example[] = [
       {
         input: [],
-        expected: -1
+        expected: -1,
       },
       {
         input: [1, 2],
-        expected: -1
+        expected: -1,
       },
       {
         input: [1, 2, 3, 4, 5],
-        expected: 4
+        expected: 4,
       },
       {
         input: [1, 5, 1],
-        expected: 1
+        expected: 1,
       },
       {
         input: [1, 5, 1, 3, 5, 1],
-        expected: 4
-      }
+        expected: 4,
+      },
     ];
 
     EXAMPLES.forEach((example) => {

@@ -4,7 +4,7 @@ export function createVolatileDateTimeApi(): DateVolatileApi {
   const millisecondsGetter: InternalNowMillisecondsSinceEpochGetter = {
     getCurrentMilliseconds: (): number => {
       return Date.now();
-    }
+    },
   };
   return new DateVolatileApiImpl(millisecondsGetter);
 }

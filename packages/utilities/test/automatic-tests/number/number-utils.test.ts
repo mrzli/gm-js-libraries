@@ -1,6 +1,6 @@
 import {
   padNonNegativeIntWithZeroes,
-  parseInteger
+  parseInteger,
 } from '../../../src/number/number-utils';
 
 describe('number-utils', () => {
@@ -14,28 +14,28 @@ describe('number-utils', () => {
       const EXAMPLES: readonly Example[] = [
         {
           input: '0',
-          expected: 0
+          expected: 0,
         },
         {
           input: '1',
-          expected: 1
+          expected: 1,
         },
         {
           input: '5',
-          expected: 5
+          expected: 5,
         },
         {
           input: '55',
-          expected: 55
+          expected: 55,
         },
         {
           input: '-1',
-          expected: -1
+          expected: -1,
         },
         {
           input: '-55',
-          expected: -55
-        }
+          expected: -55,
+        },
       ];
 
       EXAMPLES.forEach((example) => {
@@ -53,32 +53,32 @@ describe('number-utils', () => {
 
     const EXAMPLES: readonly Example[] = [
       {
-        input: ''
+        input: '',
       },
       {
-        input: ' '
+        input: ' ',
       },
       {
-        input: 'a'
+        input: 'a',
       },
       {
-        input: '11a'
+        input: '11a',
       },
       {
-        input: '11.'
+        input: '11.',
       },
       {
-        input: '11.0'
+        input: '11.0',
       },
       {
-        input: '11.1'
+        input: '11.1',
       },
       {
-        input: 'a11'
+        input: 'a11',
       },
       {
-        input: ' 11'
-      }
+        input: ' 11',
+      },
     ];
 
     EXAMPLES.forEach((example) => {
@@ -102,38 +102,38 @@ describe('number-utils', () => {
         {
           input: {
             value: 1,
-            maxLength: 3
+            maxLength: 3,
           },
-          expected: '001'
+          expected: '001',
         },
         {
           input: {
             value: 1,
-            maxLength: 4
+            maxLength: 4,
           },
-          expected: '0001'
+          expected: '0001',
         },
         {
           input: {
             value: 10,
-            maxLength: 3
+            maxLength: 3,
           },
-          expected: '010'
+          expected: '010',
         },
         {
           input: {
             value: 2111,
-            maxLength: 3
+            maxLength: 3,
           },
-          expected: '2111'
+          expected: '2111',
         },
         {
           input: {
             value: 0,
-            maxLength: 3
+            maxLength: 3,
           },
-          expected: '000'
-        }
+          expected: '000',
+        },
       ];
 
       EXAMPLES.forEach((example) => {
@@ -160,33 +160,33 @@ describe('number-utils', () => {
         {
           input: {
             value: -1,
-            maxLength: 3
-          }
+            maxLength: 3,
+          },
         },
         {
           input: {
             value: 1.2,
-            maxLength: 3
-          }
+            maxLength: 3,
+          },
         },
         {
           input: {
             value: 1,
-            maxLength: 0
-          }
+            maxLength: 0,
+          },
         },
         {
           input: {
             value: 1,
-            maxLength: -1
-          }
+            maxLength: -1,
+          },
         },
         {
           input: {
             value: 1,
-            maxLength: 5.2
-          }
-        }
+            maxLength: 5.2,
+          },
+        },
       ];
 
       EXAMPLES.forEach((example) => {

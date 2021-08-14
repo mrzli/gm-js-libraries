@@ -1,7 +1,7 @@
 import {
   createArrayOfLength,
   fillArrayOfLengthWithValue,
-  fillArrayOfLengthWithValueMapper
+  fillArrayOfLengthWithValueMapper,
 } from '../../../src/array/array-creation-utils';
 
 describe('array-creation-utils', () => {
@@ -15,16 +15,16 @@ describe('array-creation-utils', () => {
       const EXAMPLES: readonly Example[] = [
         {
           input: 0,
-          expectedLength: 0
+          expectedLength: 0,
         },
         {
           input: 1,
-          expectedLength: 1
+          expectedLength: 1,
         },
         {
           input: 10,
-          expectedLength: 10
-        }
+          expectedLength: 10,
+        },
       ];
 
       EXAMPLES.forEach((example) => {
@@ -43,8 +43,8 @@ describe('array-creation-utils', () => {
 
       const EXAMPLES: readonly Example[] = [
         {
-          input: -1
-        }
+          input: -1,
+        },
       ];
 
       EXAMPLES.forEach((example) => {
@@ -69,24 +69,24 @@ describe('array-creation-utils', () => {
         {
           input: {
             length: 0,
-            value: 'value'
+            value: 'value',
           },
-          expected: []
+          expected: [],
         },
         {
           input: {
             length: 1,
-            value: 'value'
+            value: 'value',
           },
-          expected: ['value']
+          expected: ['value'],
         },
         {
           input: {
             length: 3,
-            value: 'other-value'
+            value: 'other-value',
           },
-          expected: ['other-value', 'other-value', 'other-value']
-        }
+          expected: ['other-value', 'other-value', 'other-value'],
+        },
       ];
 
       EXAMPLES.forEach((example) => {
@@ -108,8 +108,8 @@ describe('array-creation-utils', () => {
 
       const EXAMPLES: readonly Example[] = [
         {
-          input: -1
-        }
+          input: -1,
+        },
       ];
 
       EXAMPLES.forEach((example) => {
@@ -136,24 +136,24 @@ describe('array-creation-utils', () => {
         {
           input: {
             length: 0,
-            valueMapper: (index) => `value${index + 1}`
+            valueMapper: (index) => `value${index + 1}`,
           },
-          expected: []
+          expected: [],
         },
         {
           input: {
             length: 1,
-            valueMapper: (index) => `value${index + 1}`
+            valueMapper: (index) => `value${index + 1}`,
           },
-          expected: ['value1']
+          expected: ['value1'],
         },
         {
           input: {
             length: 3,
-            valueMapper: (index) => `value${(index + 1) * 2}`
+            valueMapper: (index) => `value${(index + 1) * 2}`,
           },
-          expected: ['value2', 'value4', 'value6']
-        }
+          expected: ['value2', 'value4', 'value6'],
+        },
       ];
 
       EXAMPLES.forEach((example) => {
@@ -175,8 +175,8 @@ describe('array-creation-utils', () => {
 
       const EXAMPLES: readonly Example[] = [
         {
-          input: -1
-        }
+          input: -1,
+        },
       ];
 
       EXAMPLES.forEach((example) => {

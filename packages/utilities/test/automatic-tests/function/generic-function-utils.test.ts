@@ -1,7 +1,7 @@
 import {
   alwaysFalsePredicate,
   alwaysTruePredicate,
-  identifyFn
+  identifyFn,
 } from '../../../src/function/generic-function-utils';
 
 describe('generic-function-utils', () => {
@@ -26,7 +26,7 @@ describe('generic-function-utils', () => {
     const EXAMPLES: readonly Example[] = [
       { input: 1, expected: 1 },
       { input: 2, expected: 2 },
-      { input: 'str', expected: 'str' }
+      { input: 'str', expected: 'str' },
     ];
 
     EXAMPLES.forEach((example) => {

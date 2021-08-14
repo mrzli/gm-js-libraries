@@ -3,7 +3,7 @@ import { DateVolatileApiImpl } from '../../../src/date/date-volatile-api';
 describe('date-volatile-api', () => {
   const TEST_MILLISECONDS = 1_600_000_000_000; // 2020-09-13T12:26:40.000Z
   const DATE_VOLATILE_API = new DateVolatileApiImpl({
-    getCurrentMilliseconds: () => TEST_MILLISECONDS
+    getCurrentMilliseconds: () => TEST_MILLISECONDS,
   });
 
   it('systemTimeZone() should return a valid time zone', () => {

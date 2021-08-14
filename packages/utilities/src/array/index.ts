@@ -1,7 +1,7 @@
 export {
   createArrayOfLength,
   fillArrayOfLengthWithValue,
-  fillArrayOfLengthWithValueMapper
+  fillArrayOfLengthWithValueMapper,
 } from './array-creation-utils';
 export { arrayHasPrimitiveDuplicates } from './array-checker';
 export { arrayGetPrimitiveDuplicates } from './array-utils';
@@ -12,5 +12,5 @@ export {
   compareFnStringAsc,
   compareFnStringDesc,
   compareFnNumberAsc,
-  compareFnNumberDesc
+  compareFnNumberDesc,
 } from './array-sort';
