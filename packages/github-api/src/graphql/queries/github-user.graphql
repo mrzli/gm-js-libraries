@@ -1,8 +1,7 @@
 query GithubUser {
   viewer {
-    id,
-    login,
+    id
+    login
     email
   }
 }
-

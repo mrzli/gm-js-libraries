@@ -6,7 +6,7 @@ export function createGithubClientRest(githubToken: string): GithubClientRest {
     baseURL: 'https://api.github.com',
     headers: {
       ...createAuthorizationHeader(githubToken),
-      Accept: 'application/vnd.github.v3+json'
-    }
+      Accept: 'application/vnd.github.v3+json',
+    },
   });
 }

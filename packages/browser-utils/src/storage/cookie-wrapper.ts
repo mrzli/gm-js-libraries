@@ -6,7 +6,7 @@ export function createCookieWrapper<K extends string>(): CookieWrapper<K> {
     get,
     set,
     remove,
-    removeMany
+    removeMany,
   };
 }
 

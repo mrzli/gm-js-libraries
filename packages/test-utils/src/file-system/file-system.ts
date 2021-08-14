@@ -3,7 +3,7 @@ import { Fn0 } from '@mrzli/gm-js-libraries-utilities/types';
 import { resolvePath } from '@mrzli/gm-js-libraries-node-utils/path';
 import {
   makeDirectory,
-  removeFileSystemEntry
+  removeFileSystemEntry,
 } from '@mrzli/gm-js-libraries-node-utils/file-system';
 
 export type TestDirectoryDoWork = (dirPath: string) => Promise<void>;

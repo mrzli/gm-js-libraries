@@ -9,11 +9,11 @@ export {
   removeFileSystemEntriesInDirectory,
   copyDirectory,
   copyDirectorySubset,
-  isDirectory
+  isDirectory,
 } from './file-system';
 
 export {
   getDirectoryFilePaths,
   GetFilePathsUnderDirectoryRecursivelySortOrder,
-  GetFilePathsUnderDirectoryRecursivelyOptions
+  GetFilePathsUnderDirectoryRecursivelyOptions,
 } from './get-directory-file-paths';

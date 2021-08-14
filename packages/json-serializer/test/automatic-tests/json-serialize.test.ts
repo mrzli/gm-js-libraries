@@ -4,7 +4,7 @@ import {
   JsonValue,
   JsonValueArray,
   JsonValueObject,
-  JsonValueType
+  JsonValueType,
 } from '../../src/types/json-value';
 import { JsonEntryType } from '../../src/types/json-entry';
 import { readFileAsString } from '@mrzli/gm-js-libraries-node-utils/file-system';
@@ -14,7 +14,7 @@ describe('json-serialize', () => {
   describe('jsonSerialize()', () => {
     const DEFAULT_OPTIONS: JsonSerializerOptions = {
       allowComments: true,
-      spaces: 2
+      spaces: 2,
     };
 
     describe('primitive values', () => {
@@ -26,20 +26,20 @@ describe('json-serialize', () => {
       const EXAMPLES: readonly Example[] = [
         {
           input: { type: JsonValueType.Null },
-          expected: 'null\n'
+          expected: 'null\n',
         },
         {
           input: { type: JsonValueType.String, value: 'some string' },
-          expected: '"some string"\n'
+          expected: '"some string"\n',
         },
         {
           input: { type: JsonValueType.Number, value: 15 },
-          expected: '15\n'
+          expected: '15\n',
         },
         {
           input: { type: JsonValueType.Boolean, value: true },
-          expected: 'true\n'
-        }
+          expected: 'true\n',
+        },
       ];
 
       EXAMPLES.forEach((example) => {
@@ -64,20 +64,20 @@ describe('json-serialize', () => {
             value: [
               {
                 type: JsonEntryType.ArrayItem,
-                value: { type: JsonValueType.String, value: 'string 01' }
+                value: { type: JsonValueType.String, value: 'string 01' },
               },
               {
                 type: JsonEntryType.ArrayItem,
-                value: { type: JsonValueType.String, value: 'string 02' }
+                value: { type: JsonValueType.String, value: 'string 02' },
               },
               {
                 type: JsonEntryType.ArrayItem,
-                value: { type: JsonValueType.String, value: 'string 03' }
-              }
-            ]
+                value: { type: JsonValueType.String, value: 'string 03' },
+              },
+            ],
           },
-          expected: '[\n  "string 01",\n  "string 02",\n  "string 03"\n]\n'
-        }
+          expected: '[\n  "string 01",\n  "string 02",\n  "string 03"\n]\n',
+        },
       ];
 
       EXAMPLES.forEach((example) => {
@@ -103,23 +103,23 @@ describe('json-serialize', () => {
               {
                 type: JsonEntryType.Field,
                 key: 'field1',
-                value: { type: JsonValueType.String, value: 'string 01' }
+                value: { type: JsonValueType.String, value: 'string 01' },
               },
               {
                 type: JsonEntryType.Field,
                 key: 'field2',
-                value: { type: JsonValueType.String, value: 'string 02' }
+                value: { type: JsonValueType.String, value: 'string 02' },
               },
               {
                 type: JsonEntryType.Field,
                 key: 'field3',
-                value: { type: JsonValueType.String, value: 'string 03' }
-              }
-            ]
+                value: { type: JsonValueType.String, value: 'string 03' },
+              },
+            ],
           },
           expected:
-            '{\n  "field1": "string 01",\n  "field2": "string 02",\n  "field3": "string 03"\n}\n'
-        }
+            '{\n  "field1": "string 01",\n  "field2": "string 02",\n  "field3": "string 03"\n}\n',
+        },
       ];
 
       EXAMPLES.forEach((example) => {
@@ -144,41 +144,41 @@ describe('json-serialize', () => {
             value: [
               {
                 type: JsonEntryType.NonValue,
-                comment: 'comment in root'
+                comment: 'comment in root',
               },
               {
-                type: JsonEntryType.NonValue
+                type: JsonEntryType.NonValue,
               },
               {
                 type: JsonEntryType.Field,
                 key: 'fieldNull',
-                value: { type: JsonValueType.Null }
+                value: { type: JsonValueType.Null },
               },
               {
                 type: JsonEntryType.Field,
                 key: 'fieldString',
                 value: { type: JsonValueType.String, value: 'string in root' },
-                comment: 'comment in root, next to string'
+                comment: 'comment in root, next to string',
               },
               {
                 type: JsonEntryType.Field,
                 key: 'fieldNumber',
-                value: { type: JsonValueType.Number, value: 11 }
+                value: { type: JsonValueType.Number, value: 11 },
               },
               {
                 type: JsonEntryType.Field,
                 key: 'fieldBoolean',
-                value: { type: JsonValueType.Boolean, value: true }
+                value: { type: JsonValueType.Boolean, value: true },
               },
               {
                 type: JsonEntryType.Field,
                 key: 'fieldEmptyArray',
-                value: { type: JsonValueType.Array, value: [] }
+                value: { type: JsonValueType.Array, value: [] },
               },
               {
                 type: JsonEntryType.Field,
                 key: 'fieldEmptyObject',
-                value: { type: JsonValueType.Object, value: [] }
+                value: { type: JsonValueType.Object, value: [] },
               },
               {
                 type: JsonEntryType.Field,
@@ -188,38 +188,38 @@ describe('json-serialize', () => {
                   value: [
                     {
                       type: JsonEntryType.NonValue,
-                      comment: 'comment in nested array'
+                      comment: 'comment in nested array',
                     },
                     {
-                      type: JsonEntryType.NonValue
+                      type: JsonEntryType.NonValue,
                     },
                     {
                       type: JsonEntryType.ArrayItem,
-                      value: { type: JsonValueType.Null }
+                      value: { type: JsonValueType.Null },
                     },
                     {
                       type: JsonEntryType.ArrayItem,
                       value: {
                         type: JsonValueType.String,
-                        value: 'string in nested array'
+                        value: 'string in nested array',
                       },
-                      comment: 'comment in nested array, next to string'
+                      comment: 'comment in nested array, next to string',
                     },
                     {
                       type: JsonEntryType.ArrayItem,
-                      value: { type: JsonValueType.Number, value: 12 }
+                      value: { type: JsonValueType.Number, value: 12 },
                     },
                     {
                       type: JsonEntryType.ArrayItem,
-                      value: { type: JsonValueType.Boolean, value: false }
+                      value: { type: JsonValueType.Boolean, value: false },
                     },
                     {
                       type: JsonEntryType.ArrayItem,
-                      value: { type: JsonValueType.Array, value: [] }
+                      value: { type: JsonValueType.Array, value: [] },
                     },
                     {
                       type: JsonEntryType.ArrayItem,
-                      value: { type: JsonValueType.Object, value: [] }
+                      value: { type: JsonValueType.Object, value: [] },
                     },
                     {
                       type: JsonEntryType.ArrayItem,
@@ -230,11 +230,11 @@ describe('json-serialize', () => {
                             type: JsonEntryType.ArrayItem,
                             value: {
                               type: JsonValueType.String,
-                              value: 'string in double nested array'
-                            }
-                          }
-                        ]
-                      }
+                              value: 'string in double nested array',
+                            },
+                          },
+                        ],
+                      },
                     },
                     {
                       type: JsonEntryType.ArrayItem,
@@ -246,14 +246,14 @@ describe('json-serialize', () => {
                             key: 'nestedInArrayField',
                             value: {
                               type: JsonValueType.String,
-                              value: 'nested in array string'
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  ]
-                }
+                              value: 'nested in array string',
+                            },
+                          },
+                        ],
+                      },
+                    },
+                  ],
+                },
               },
               {
                 type: JsonEntryType.Field,
@@ -266,16 +266,16 @@ describe('json-serialize', () => {
                       key: 'nestedField',
                       value: {
                         type: JsonValueType.String,
-                        value: 'nested string'
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
+                        value: 'nested string',
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
           },
-          expected: 'complex-example001.txt'
-        }
+          expected: 'complex-example001.txt',
+        },
       ];
 
       EXAMPLES.forEach((example) => {
@@ -305,21 +305,21 @@ describe('json-serialize', () => {
               {
                 type: JsonEntryType.Field,
                 key: 'field1',
-                value: { type: JsonValueType.String, value: 'string 01' }
+                value: { type: JsonValueType.String, value: 'string 01' },
               },
               {
                 type: JsonEntryType.Field,
                 key: 'field2',
-                value: { type: JsonValueType.String, value: 'string 02' }
+                value: { type: JsonValueType.String, value: 'string 02' },
               },
               {
                 type: JsonEntryType.Field,
                 key: 'field1',
-                value: { type: JsonValueType.String, value: 'string 03' }
-              }
-            ]
-          }
-        }
+                value: { type: JsonValueType.String, value: 'string 03' },
+              },
+            ],
+          },
+        },
       ];
 
       EXAMPLES.forEach((example) => {

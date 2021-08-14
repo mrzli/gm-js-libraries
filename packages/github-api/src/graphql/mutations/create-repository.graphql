@@ -1,9 +1,9 @@
 mutation CreateRepository(
-  $repositoryName: String!,
-  $repositoryDescription: String!,
+  $repositoryName: String!
+  $repositoryDescription: String!
   $ownerId: ID!
 ) {
-  createRepository (
+  createRepository(
     input: {
       name: $repositoryName
       description: $repositoryDescription

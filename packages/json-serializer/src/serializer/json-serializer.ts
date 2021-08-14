@@ -2,14 +2,14 @@ import {
   JsonValue,
   JsonValueArray,
   JsonValueObject,
-  JsonValueType
+  JsonValueType,
 } from '../types/json-value';
 import { JsonSerializerOptions } from '../types/json-serializer-options';
 import {
   JsonEntry,
   JsonEntryField,
   JsonEntryObject,
-  JsonEntryType
+  JsonEntryType,
 } from '../types/json-entry';
 import {
   getArrayEndString,
@@ -20,11 +20,11 @@ import {
   getObjectEndString,
   getObjectStartString,
   getPrimitiveValueString,
-  JsonEntryWithValue
+  JsonEntryWithValue,
 } from './json-serializer-helpers';
 import {
   arrayFindLastIndexOfWithPredicate,
-  arrayGetPrimitiveDuplicates
+  arrayGetPrimitiveDuplicates,
 } from '@mrzli/gm-js-libraries-utilities/array';
 
 export function jsonSerialize(

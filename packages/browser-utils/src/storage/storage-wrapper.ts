@@ -14,7 +14,7 @@ export function createStorageWrapper<K extends string>(
     },
     removeAll: () => {
       storage.clear();
-    }
+    },
   };
 }
 

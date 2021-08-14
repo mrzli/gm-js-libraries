@@ -4,5 +4,5 @@ export enum JsonValueType {
   Number = 'Number',
   Boolean = 'Boolean',
   Array = 'Array',
-  Object = 'Object'
+  Object = 'Object',
 }

@@ -5,6 +5,6 @@ export function createHistoryWrapper(): HistoryWrapper {
   return {
     back: () => history.back(),
     forward: () => history.forward(),
-    go: (delta: number) => history.go(delta)
+    go: (delta: number) => history.go(delta),
   };
 }

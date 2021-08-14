@@ -2,7 +2,7 @@ import urlParse from 'url-parse';
 import {
   LocationObject,
   LocationWrapper,
-  SearchObject
+  SearchObject,
 } from '../types/location-wrapper';
 import { StringMapOfValues } from '@mrzli/gm-js-libraries-utilities/types';
 import URLParse from 'url-parse';
@@ -50,7 +50,7 @@ export function createLocationWrapper(): LocationWrapper {
     },
     reloadPage: () => {
       location.reload();
-    }
+    },
   };
 }
 
@@ -68,7 +68,7 @@ function getLocationObject(location: Location): LocationObject {
     port: urlObject.port,
     pathname: urlObject.pathname,
     hash: skipFirst(urlObject.hash),
-    searchObject: getSearchObject(urlObject)
+    searchObject: getSearchObject(urlObject),
   };
 }
 
@@ -87,7 +87,7 @@ function getSearchObject(urlObject: URLParse): SearchObject {
 
   return {
     keys,
-    entries
+    entries,
   };
 }
 

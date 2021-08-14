@@ -3,13 +3,13 @@ import {
   JsonValueNull,
   JsonValueNumber,
   JsonValueString,
-  JsonValueType
+  JsonValueType,
 } from '../types/json-value';
 import {
   JsonEntry,
   JsonEntryArrayItem,
   JsonEntryField,
-  JsonEntryNonValue
+  JsonEntryNonValue,
 } from '../types/json-entry';
 import { JsonSerializerOptions } from '../types/json-serializer-options';
 

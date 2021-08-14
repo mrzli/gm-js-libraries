@@ -7,7 +7,7 @@ import {
   CreateRepositoryMutation,
   CreateRepositoryMutationVariables,
   GithubUser,
-  GithubUserQuery
+  GithubUserQuery,
 } from '../graphql/generated/graphql';
 import { ApolloClient } from 'apollo-client';
 import { NormalizedCacheObject } from 'apollo-cache-inmemory';
@@ -31,7 +31,7 @@ class GithubApiImpl implements GithubApi {
 
   public async getUser(): Promise<GithubUserData> {
     const result = await this.clientGraphQl.query<GithubUserQuery>({
-      query: GithubUser
+      query: GithubUser,
     });
     return result.data.viewer;
   }
@@ -47,8 +47,8 @@ class GithubApiImpl implements GithubApi {
       variables: {
         ownerId: input.ownerId,
         repositoryName: input.repositoryName,
-        repositoryDescription: input.repositoryDescription
-      }
+        repositoryDescription: input.repositoryDescription,
+      },
     });
     return result.data?.createRepository?.repository;
   }

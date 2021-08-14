@@ -65,7 +65,7 @@ export async function copyDirectory(
   }
   await fsExtra.copy(sourceDirPath, destinationDirPath, {
     recursive: true,
-    overwrite: true
+    overwrite: true,
   });
 }
 

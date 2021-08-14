@@ -1,5 +1,5 @@
 export {
   createTestDirectoryManager,
   TestDirectoryManager,
-  TestDirectoryDoWork
+  TestDirectoryDoWork,
 } from './file-system';

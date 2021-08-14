@@ -12,9 +12,9 @@ export function createGithubClientGraphql(
     link: new HttpLink({
       uri: 'https://api.github.com/graphql',
       headers: {
-        ...createAuthorizationHeader(githubToken)
-      }
+        ...createAuthorizationHeader(githubToken),
+      },
     }),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
   });
 }

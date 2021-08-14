@@ -2,7 +2,7 @@ import { resolvePathFromCwd } from '../../src/path';
 import {
   getDirectoryFilePaths,
   GetFilePathsUnderDirectoryRecursivelyOptions,
-  GetFilePathsUnderDirectoryRecursivelySortOrder
+  GetFilePathsUnderDirectoryRecursivelySortOrder,
 } from '../../src/file-system/get-directory-file-paths';
 
 describe('get-directory-file-paths', () => {
@@ -20,7 +20,7 @@ describe('get-directory-file-paths', () => {
       'sub-dir/other-name002.txt',
       'sub-dir/sub-dir-level-2/file005.txt',
       'sub-dir/zfile002.txt',
-      'zfile001.txt'
+      'zfile001.txt',
     ];
 
     const DIRECTORIES_FIRST_ORDERING: readonly string[] = [
@@ -34,7 +34,7 @@ describe('get-directory-file-paths', () => {
       'file003.txt',
       'md001.md',
       'other-name001.txt',
-      'zfile001.txt'
+      'zfile001.txt',
     ];
 
     const FILES_FIRST_ORDERING: readonly string[] = [
@@ -48,7 +48,7 @@ describe('get-directory-file-paths', () => {
       'sub-dir/md002.md',
       'sub-dir/other-name002.txt',
       'sub-dir/zfile002.txt',
-      'sub-dir/sub-dir-level-2/file005.txt'
+      'sub-dir/sub-dir-level-2/file005.txt',
     ];
 
     function toAbsolutePath(relativePath: string): string {
@@ -68,85 +68,85 @@ describe('get-directory-file-paths', () => {
       const EXAMPLES: readonly Example[] = [
         {
           input: {
-            options: undefined
+            options: undefined,
           },
-          expected: ALPHABETIC_ORDERING
+          expected: ALPHABETIC_ORDERING,
         },
         {
           input: {
-            options: {}
+            options: {},
           },
-          expected: ALPHABETIC_ORDERING
+          expected: ALPHABETIC_ORDERING,
         },
         {
           input: {
             options: {
               sortOrder:
-                GetFilePathsUnderDirectoryRecursivelySortOrder.Alphabetically
-            }
+                GetFilePathsUnderDirectoryRecursivelySortOrder.Alphabetically,
+            },
           },
-          expected: ALPHABETIC_ORDERING
-        },
-        {
-          input: {
-            options: {
-              returnAbsolutePaths: false,
-              sortOrder:
-                GetFilePathsUnderDirectoryRecursivelySortOrder.Alphabetically
-            }
-          },
-          expected: ALPHABETIC_ORDERING
-        },
-        {
-          input: {
-            options: {
-              returnAbsolutePaths: true,
-              sortOrder:
-                GetFilePathsUnderDirectoryRecursivelySortOrder.Alphabetically
-            }
-          },
-          expected: ALPHABETIC_ORDERING.map(toAbsolutePath)
+          expected: ALPHABETIC_ORDERING,
         },
         {
           input: {
             options: {
               returnAbsolutePaths: false,
               sortOrder:
-                GetFilePathsUnderDirectoryRecursivelySortOrder.DirectoriesFirst
-            }
+                GetFilePathsUnderDirectoryRecursivelySortOrder.Alphabetically,
+            },
           },
-          expected: DIRECTORIES_FIRST_ORDERING
+          expected: ALPHABETIC_ORDERING,
         },
         {
           input: {
             options: {
               returnAbsolutePaths: true,
               sortOrder:
-                GetFilePathsUnderDirectoryRecursivelySortOrder.DirectoriesFirst
-            }
+                GetFilePathsUnderDirectoryRecursivelySortOrder.Alphabetically,
+            },
           },
-          expected: DIRECTORIES_FIRST_ORDERING.map(toAbsolutePath)
+          expected: ALPHABETIC_ORDERING.map(toAbsolutePath),
         },
         {
           input: {
             options: {
               returnAbsolutePaths: false,
               sortOrder:
-                GetFilePathsUnderDirectoryRecursivelySortOrder.FilesFirst
-            }
+                GetFilePathsUnderDirectoryRecursivelySortOrder.DirectoriesFirst,
+            },
           },
-          expected: FILES_FIRST_ORDERING
+          expected: DIRECTORIES_FIRST_ORDERING,
         },
         {
           input: {
             options: {
               returnAbsolutePaths: true,
               sortOrder:
-                GetFilePathsUnderDirectoryRecursivelySortOrder.FilesFirst
-            }
+                GetFilePathsUnderDirectoryRecursivelySortOrder.DirectoriesFirst,
+            },
           },
-          expected: FILES_FIRST_ORDERING.map(toAbsolutePath)
-        }
+          expected: DIRECTORIES_FIRST_ORDERING.map(toAbsolutePath),
+        },
+        {
+          input: {
+            options: {
+              returnAbsolutePaths: false,
+              sortOrder:
+                GetFilePathsUnderDirectoryRecursivelySortOrder.FilesFirst,
+            },
+          },
+          expected: FILES_FIRST_ORDERING,
+        },
+        {
+          input: {
+            options: {
+              returnAbsolutePaths: true,
+              sortOrder:
+                GetFilePathsUnderDirectoryRecursivelySortOrder.FilesFirst,
+            },
+          },
+          expected: FILES_FIRST_ORDERING.map(toAbsolutePath),
+        },
       ];
 
       EXAMPLES.forEach((example) => {

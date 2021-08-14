@@ -10,5 +10,5 @@ export {
   entryFieldNumber,
   entryFieldBoolean,
   entryFieldArray,
-  entryFieldObject
+  entryFieldObject,
 } from './helpers';

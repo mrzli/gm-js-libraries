@@ -3,13 +3,13 @@ import { isDirectory } from './file-system';
 import { joinPath, resolvePath } from '../path';
 import {
   compareFnStringAsc,
-  sortArray
+  sortArray,
 } from '@mrzli/gm-js-libraries-utilities/array';
 
 export enum GetFilePathsUnderDirectoryRecursivelySortOrder {
   Alphabetically = 'Alphabetically',
   DirectoriesFirst = 'DirectoriesFirst',
-  FilesFirst = 'FilesFirst'
+  FilesFirst = 'FilesFirst',
 }
 
 export interface GetFilePathsUnderDirectoryRecursivelyOptions {
@@ -19,7 +19,7 @@ export interface GetFilePathsUnderDirectoryRecursivelyOptions {
 
 const DEFAULT_OPTIONS: GetFilePathsUnderDirectoryRecursivelyOptions = {
   returnAbsolutePaths: false,
-  sortOrder: GetFilePathsUnderDirectoryRecursivelySortOrder.Alphabetically
+  sortOrder: GetFilePathsUnderDirectoryRecursivelySortOrder.Alphabetically,
 };
 
 export async function getDirectoryFilePaths(
@@ -87,7 +87,7 @@ async function getPathData(
   const isDir = await isDirectory(resolvePath(baseDirPath, subDirPath, entry));
   return {
     entryPath: joinPath(subDirPath, entry),
-    isDirectory: isDir
+    isDirectory: isDir,
   };
 }
 

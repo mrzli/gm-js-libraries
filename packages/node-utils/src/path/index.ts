@@ -2,5 +2,5 @@ export {
   resolvePath,
   resolvePathFromCwd,
   joinPath,
-  getFileDirectory
+  getFileDirectory,
 } from './path';
