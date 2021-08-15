@@ -1,5 +1,5 @@
 import { objectGetKeys, objectOmitFields } from '../../../src/object';
-import { AnyObject } from '../../../dist/types';
+import { AnyObject } from '../../../src/types';
 
 describe('object-utils', () => {
   interface ObjectType {
