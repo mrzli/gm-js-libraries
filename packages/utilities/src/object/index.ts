@@ -1,1 +1,5 @@
-export { objectGetKeys, objectOmitFields } from './object-utils';
+export {
+  objectGetKeys,
+  objectOmitFields,
+  objectPickFields,
+} from './object-utils';
