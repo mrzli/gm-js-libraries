@@ -20,3 +20,17 @@ export function objectOmitFields<T extends AnyObject, K extends keyof T>(
   }, {} as Partial<T>);
   return result as Except<T, K>;
 }
+
+export function objectPickFields<T extends AnyObject, K extends keyof T>(
+  obj: T,
+  fieldsToPick: readonly K[]
+): Pick<T, K> {
+  const fieldsToPickSet = new Set<K>(fieldsToPick);
+  const result = objectGetKeys<T, K>(obj).reduce((acc, key) => {
+    if (fieldsToPickSet.has(key)) {
+      acc[key] = obj[key];
+    }
+    return acc;
+  }, {} as Partial<T>);
+  return result as Pick<T, K>;
+}
