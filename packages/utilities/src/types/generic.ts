@@ -21,6 +21,9 @@ export type ReadonlyRecord<K extends keyof any, T> = Readonly<Record<K, T>>;
 export type AnyObject = Record<string, any>;
 
 export type Nullish<TValue> = TValue | null | undefined;
+export type NullishOnly<TValue> = TValue extends null | undefined
+  ? TValue
+  : never;
 
 export type ReadonlyTuple2<T1, T2> = readonly [T1, T2];
 export type ReadonlyTuple3<T1, T2, T3> = readonly [T1, T2, T3];
