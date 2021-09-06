@@ -1,7 +1,7 @@
 {
   "name": "@mrzli/gm-js-libraries-utilities",
   "description": "JS (TS) utilities.",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "author": "goran.mrzljak@gmail.com",
   "repository": {
     "type": "git",

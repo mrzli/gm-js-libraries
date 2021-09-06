@@ -31,10 +31,10 @@ export function arrayGetPrimitiveDuplicates<TItem extends Nullish<SimpleValue>>(
 
 export function flatMap<TItemInput, TItemResult>(
   array: readonly TItemInput[],
-  mapper: (item: TItemInput) => readonly TItemResult[]
+  mapper: (item: TItemInput, index: number) => readonly TItemResult[]
 ): readonly TItemResult[] {
-  return array.reduce<TItemResult[]>((acc, item) => {
-    const mapped = mapper(item);
+  return array.reduce<TItemResult[]>((acc, item, index) => {
+    const mapped = mapper(item, index);
     acc.push(...mapped);
     return acc;
   }, []);
