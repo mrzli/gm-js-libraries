@@ -6,5 +6,6 @@ export function createHistoryWrapper(): HistoryWrapper {
     back: () => history.back(),
     forward: () => history.forward(),
     go: (delta: number) => history.go(delta),
+    push: (url: string) => history.pushState({}, '', url),
   };
 }
